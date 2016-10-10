@@ -1,0 +1,16 @@
+<table class='race-list'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |race|}}
+    <tr class='race-row'>
+      <td class='race-title'>{{race.name}}</td>
+      <td class='race-description'>{{race.description}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

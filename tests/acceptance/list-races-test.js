@@ -11,12 +11,7 @@ test('visiting /list-races', function(assert) {
   });
 });
 
-test('should list all races.', function (assert) {
-  visit('/list-races');
-  andThen(function () {
-    assert.equal(find('.race').length, 4, 'should list 4 races in the races table');
-  });
-});
+//critical path operations overview
 
 /*
 test('should link to each individual race.', function (assert) {
