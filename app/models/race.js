@@ -1,14 +1,16 @@
-import DS from 'ember-data';
+import Model from 'ember-data/model';
+import attr from 'ember-data/attr';
 
-export default DS.Model.extend({
-  name: DS.attr(),
-  description: DS.attr(),
-  registrationTime: DS.attr(),
-  startTime: DS.attr(),
-  cost: DS.attr(),
-  distance: DS.attr(),
-  imageUrl: DS.attr(),
-  resultsUrl: DS.attr(),
-  courseUrl: DS.attr(),
-  courseText: DS.attr()
+export default Model.extend({
+  name: attr('string'),
+  description: attr('string'),
+  date: attr('string'),
+  registrationTime: attr('string'),
+  startTime: attr('string'),
+  cost: attr('string'),
+  distance: attr('string'),
+  imageUrl: attr('string'),
+  resultsUrl: attr('string'),
+  courseUrl: attr('string'),
+  courseText: attr('string')
 });
