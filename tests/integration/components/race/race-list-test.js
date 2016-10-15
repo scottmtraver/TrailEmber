@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import startMirage from '../../helpers/mirage-integration';
+import startMirage from '../../../helpers/mirage-integration';
 import moment from 'moment';
 
 moduleForComponent('race-list', 'Integration | Component | race list', {
@@ -17,7 +17,7 @@ test('it renders a table', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{race-list}}`);
+  this.render(hbs`{{race/race-list}}`);
 
   // Template block usage:
   assert.equal(this.$('table').length, 1, 'should contain a table');
@@ -30,7 +30,7 @@ test('it renders a row for each race', function(assert) {
 
   this.set('races', races);
 
-  this.render(hbs`{{race-list model=races}}`);
+  this.render(hbs`{{race/race-list model=races}}`);
 
   // Template block usage:
   assert.equal(this.$('.race-row').length, 2, 'should contain two race rows');
@@ -45,7 +45,7 @@ test('it renders race rows with proper properties', function(assert) {
 
   this.set('races', raceArray);
 
-  this.render(hbs`{{race-list model=races}}`);
+  this.render(hbs`{{race/race-list model=races}}`);
 
   // Template block usage:
   assert.equal(this.$('.race-title').text(), firstRace.name, 'should show race title');
@@ -53,3 +53,4 @@ test('it renders race rows with proper properties', function(assert) {
                'should show properly formatted date');
   assert.equal(this.$('.race-edit a').text(), 'Edit', 'should have link to edit race');
 });
+

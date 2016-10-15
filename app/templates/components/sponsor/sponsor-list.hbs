@@ -1,0 +1,18 @@
+<table class='sponsor-list'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Text</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |sponsor|}}
+    <tr class='sponsor-row'>
+      <td class='sponsor-name'>{{sponsor.name}}</td>
+      <td class='sponsor-text'>{{sponsor.text}}</td>
+      <td class='sponsor-edit'>{{link-to "Edit" "sponsors.edit" sponsor}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
