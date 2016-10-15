@@ -10,6 +10,7 @@
     <tr class='race-row'>
       <td class='race-title'>{{race.name}}</td>
       <td class='race-date'>{{moment-format race.date 'MMM Do YYYY'}}</td>
+      <td class='race-edit'>{{link-to "Edit" "races.edit" race}}</td>
     </tr>
   {{/each}}
   </tbody>

@@ -7,7 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('races', function() {});
+  this.route('races', function() {
+    this.route('edit', {
+      path: ':race_id/edit'
+    });
+  });
 });
 
 export default Router;

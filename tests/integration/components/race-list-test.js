@@ -37,7 +37,7 @@ test('it renders a row for each race', function(assert) {
 });
 
 test('it renders race rows with proper properties', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   let firstRace = server.create('race');
 
@@ -51,4 +51,5 @@ test('it renders race rows with proper properties', function(assert) {
   assert.equal(this.$('.race-title').text(), firstRace.name, 'should show race title');
   assert.equal(this.$('.race-date').text(), moment(firstRace.date).format("MMM Do YYYY"),
                'should show properly formatted date');
+  assert.equal(this.$('.race-edit a').text(), 'Edit', 'should have link to edit race');
 });
