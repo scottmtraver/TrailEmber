@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('list-races');
+  this.route('races', function() {});
 });
 
 export default Router;

@@ -48,7 +48,7 @@ test('it renders race rows with proper properties', function(assert) {
   this.render(hbs`{{race-list model=races}}`);
 
   // Template block usage:
-  assert.equal(this.$('.race-title').text(), firstRace.name, 'should have race title in first column');
+  assert.equal(this.$('.race-title').text(), firstRace.name, 'should show race title');
   assert.equal(this.$('.race-date').text(), moment(firstRace.date).format("MMM Do YYYY"),
-               'should have date in second column');
+               'should show properly formatted date');
 });

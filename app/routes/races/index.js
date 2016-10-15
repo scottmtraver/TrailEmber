@@ -5,3 +5,4 @@ export default Ember.Route.extend({
     return this.get('store').findAll('race');
   }
 });
+
