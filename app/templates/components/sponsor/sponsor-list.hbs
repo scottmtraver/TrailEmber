@@ -1,17 +1,19 @@
-<table class='sponsor-list'>
+<table class='rt-sponsor-list'>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Text</th>
+      <th>Logo</th>
+      <th>Link</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
   {{#each model as |sponsor|}}
-    <tr class='sponsor-row'>
-      <td class='sponsor-name'>{{sponsor.name}}</td>
-      <td class='sponsor-text'>{{sponsor.text}}</td>
-      <td class='sponsor-edit'>{{link-to "Edit" "sponsors.edit" sponsor}}</td>
+    <tr class='rt-sponsor-row'>
+      <td class='rt-sponsor-name'>{{sponsor.name}}</td>
+      <td class='rt-sponsor-logo'><img src={{sponsor.imageUrl}} alt ="Sponsor Logo" /></td>
+      <td class='rt-sponsor-link'><a href={{sponsor.linkUrl}}>{{sponsor.linkUrl}}</a></td>
+      <td class='rt-sponsor-edit'>{{link-to "Edit" "sponsors.edit" sponsor}}</td>
     </tr>
   {{/each}}
   </tbody>

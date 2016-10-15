@@ -2,7 +2,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Logo</th>
+      <th>Link</th>
       <th></th>
     </tr>
   </thead>
@@ -10,7 +11,8 @@
   {{#each model as |venue|}}
     <tr class='venue-row'>
       <td class='venue-name'>{{venue.name}}</td>
-      <td class='venue-description'>{{venue.description}}</td>
+      <td class='venue-logo'><img src={{venue.imageUrl}} alt ="Venue Logo" /></td>
+      <td class='venue-link'><a href={{venue.linkUrl}}>{{venue.linkUrl}}</a></td>
       <td class='venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
     </tr>
   {{/each}}

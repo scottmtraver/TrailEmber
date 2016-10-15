@@ -30,11 +30,11 @@ test('it renders a row for each sponsor', function(assert) {
   this.render(hbs`{{sponsor/sponsor-list model=sponsors}}`);
 
   // Template block usage:
-  assert.equal(this.$('.sponsor-row').length, 2, 'should contain two sponsor rows');
+  assert.equal(this.$('.rt-sponsor-row').length, 2, 'should contain two sponsor rows');
 });
 
 test('it renders sponsor rows with proper properties', function(assert) {
-  assert.expect(3);
+  assert.expect(6);
 
   let firstSponsor = server.create('sponsor');
 
@@ -45,8 +45,11 @@ test('it renders sponsor rows with proper properties', function(assert) {
   this.render(hbs`{{sponsor/sponsor-list model=sponsors}}`);
 
   // Template block usage:
-  assert.equal(this.$('.sponsor-name').text(), firstSponsor.name, 'should show sponsor name');
-  assert.equal(this.$('.sponsor-text').text(), firstSponsor.text, 'should show sponsor text');
-  assert.equal(this.$('.sponsor-edit a').text(), 'Edit', 'should have link to edit sponsor');
+  assert.equal(this.$('.rt-sponsor-name').text(), firstSponsor.name, 'should show sponsor name');
+  assert.equal(this.$('.rt-sponsor-logo').children().first().attr('src'), firstSponsor.imageUrl, 'should contain image with logo as src');
+  assert.equal(this.$('.rt-sponsor-logo').children().first().attr('alt'), 'Sponsor Logo', 'should contain image with proper alt text');
+  assert.equal(this.$('.rt-sponsor-link a').text(), firstSponsor.linkUrl, 'should have proper link href');
+  assert.equal(this.$('.rt-sponsor-link a').attr('href'), firstSponsor.linkUrl, 'should have proper link text');
+  assert.equal(this.$('.rt-sponsor-edit a').text(), 'Edit', 'should have link to edit sponsor');
 });
 

@@ -34,7 +34,7 @@ test('it renders a row for each venue', function(assert) {
 });
 
 test('it renders venue rows with proper properties', function(assert) {
-  assert.expect(3);
+  assert.expect(6);
 
   let firstVenue = server.create('venue');
 
@@ -46,8 +46,10 @@ test('it renders venue rows with proper properties', function(assert) {
 
   // Template block usage:
   assert.equal(this.$('.venue-name').text(), firstVenue.name, 'should show venue name');
-  assert.equal(this.$('.venue-description').text(), firstVenue.description, 'should show venue description');
+  assert.equal(this.$('.venue-logo').children().first().attr('src'), firstVenue.imageUrl, 'should contain image with logo as src');
+  assert.equal(this.$('.venue-logo').children().first().attr('alt'), 'Venue Logo', 'should contain image with proper alt text');
+  assert.equal(this.$('.venue-link a').text(), firstVenue.linkUrl, 'should have proper link href');
+  assert.equal(this.$('.venue-link a').attr('href'), firstVenue.linkUrl, 'should have proper link text');
   assert.equal(this.$('.venue-edit a').text(), 'Edit', 'should have link to edit venue');
 });
-
 
