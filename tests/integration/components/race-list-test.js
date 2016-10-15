@@ -1,9 +1,16 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
+import startMirage from '../../helpers/mirage-integration';
+import moment from 'moment';
 
 moduleForComponent('race-list', 'Integration | Component | race list', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    startMirage(this.container);
+  },
+  afterEach() {
+    window.server.shutdown();
+  }
 });
 
 test('it renders a table', function(assert) {
@@ -17,18 +24,11 @@ test('it renders a table', function(assert) {
 });
 
 test('it renders a row for each race', function(assert) {
-  let firstRace = Ember.Object.create({
-    name: 'Race #1',
-    description: 'Description #1'
-  });
-  let secondRace = Ember.Object.create({
-    name: 'Race #2',
-    description: 'Description #2'
-  });
+  assert.expect(1);
 
-  let raceArray = [firstRace, secondRace];
+  let races = server.createList('race', 2);
 
-  this.set('races', raceArray);
+  this.set('races', races);
 
   this.render(hbs`{{race-list model=races}}`);
 
@@ -38,10 +38,8 @@ test('it renders a row for each race', function(assert) {
 
 test('it renders race rows with proper properties', function(assert) {
   assert.expect(2);
-  let firstRace = Ember.Object.create({
-    name: 'Race #1',
-    description: 'Description #1'
-  });
+
+  let firstRace = server.create('race');
 
   let raceArray = [firstRace];
 
@@ -51,5 +49,6 @@ test('it renders race rows with proper properties', function(assert) {
 
   // Template block usage:
   assert.equal(this.$('.race-title').text(), firstRace.name, 'should have race title in first column');
-  assert.equal(this.$('.race-description').text(), firstRace.description, 'should have race description in second column');
+  assert.equal(this.$('.race-date').text(), moment(firstRace.date).format("MMM Do YYYY"),
+               'should have date in second column');
 });

@@ -2,14 +2,14 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
+      <th>Date</th>
     </tr>
   </thead>
   <tbody>
   {{#each model as |race|}}
     <tr class='race-row'>
       <td class='race-title'>{{race.name}}</td>
-      <td class='race-description'>{{race.description}}</td>
+      <td class='race-date'>{{moment-format race.date 'MMM Do YYYY'}}</td>
     </tr>
   {{/each}}
   </tbody>
