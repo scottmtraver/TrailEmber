@@ -34,7 +34,7 @@ test('it renders a row for each sponsor', function(assert) {
 });
 
 test('it renders sponsor rows with proper properties', function(assert) {
-  assert.expect(2);
+  assert.expect(3);
 
   let firstSponsor = server.create('sponsor');
 
@@ -46,6 +46,7 @@ test('it renders sponsor rows with proper properties', function(assert) {
 
   // Template block usage:
   assert.equal(this.$('.sponsor-name').text(), firstSponsor.name, 'should show sponsor name');
+  assert.equal(this.$('.sponsor-text').text(), firstSponsor.text, 'should show sponsor text');
   assert.equal(this.$('.sponsor-edit a').text(), 'Edit', 'should have link to edit sponsor');
 });
 

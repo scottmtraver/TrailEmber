@@ -1,0 +1,53 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+import startMirage from '../../../helpers/mirage-integration';
+
+moduleForComponent('venue/venue-list', 'Integration | Component | venue/venue list', {
+  integration: true,
+  beforeEach() {
+    startMirage(this.container);
+  },
+  afterEach() {
+    window.server.shutdown();
+  }
+});
+
+test('it renders', function(assert) {
+  // Set any properties with this.set('myProperty', 'value');
+  // Handle any actions with this.on('myAction', function(val) { ... });
+
+  this.render(hbs`{{venue/venue-list}}`);
+
+  assert.equal(this.$('table').length, 1, 'should contain a table');
+});
+test('it renders a row for each venue', function(assert) {
+  assert.expect(1);
+
+  let venues = server.createList('venues', 2);
+
+  this.set('venues', venues);
+
+  this.render(hbs`{{venue/venue-list model=venues}}`);
+
+  // Template block usage:
+  assert.equal(this.$('.venue-row').length, 2, 'should contain two venue rows');
+});
+
+test('it renders venue rows with proper properties', function(assert) {
+  assert.expect(3);
+
+  let firstVenue = server.create('venue');
+
+  let venues = [firstVenue];
+
+  this.set('venues', venues);
+
+  this.render(hbs`{{venue/venue-list model=venues}}`);
+
+  // Template block usage:
+  assert.equal(this.$('.venue-name').text(), firstVenue.name, 'should show venue name');
+  assert.equal(this.$('.venue-description').text(), firstVenue.description, 'should show venue description');
+  assert.equal(this.$('.venue-edit a').text(), 'Edit', 'should have link to edit venue');
+});
+
+

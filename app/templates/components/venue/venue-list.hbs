@@ -1,0 +1,18 @@
+<table class='venue-list'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |venue|}}
+    <tr class='venue-row'>
+      <td class='venue-name'>{{venue.name}}</td>
+      <td class='venue-description'>{{venue.description}}</td>
+      <td class='venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
