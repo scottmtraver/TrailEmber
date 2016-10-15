@@ -1,3 +1,4 @@
+/*
 import { test } from 'qunit';
 import moduleForAcceptance from 'trail-ember/tests/helpers/module-for-acceptance';
 
@@ -10,6 +11,7 @@ test('visiting /list-races', function(assert) {
     assert.equal(currentURL(), '/list-races');
   });
 });
+*/
 
 //critical path operations overview
 
