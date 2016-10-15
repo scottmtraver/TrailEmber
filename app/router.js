@@ -8,8 +8,21 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('races', function() {
+    this.route('new');
     this.route('edit', {
       path: ':race_id/edit'
+    });
+  });
+  this.route('sponsors', function() {
+    this.route('new');
+    this.route('edit', {
+      path: ':sponsor_id/edit'
+    });
+  });
+  this.route('venues', function() {
+    this.route('new');
+    this.route('edit', {
+      path: ':venue_id/edit'
     });
   });
 });
