@@ -3,7 +3,7 @@ import hbs from 'htmlbars-inline-precompile';
 import startMirage from '../../../helpers/mirage-integration';
 import moment from 'moment';
 
-moduleForComponent('race-list', 'Integration | Component | race list', {
+moduleForComponent('rt-race-list', 'Integration | Component | race list', {
   integration: true,
   beforeEach() {
     startMirage(this.container);
@@ -33,7 +33,7 @@ test('it renders a row for each race', function(assert) {
   this.render(hbs`{{race/race-list model=races}}`);
 
   // Template block usage:
-  assert.equal(this.$('.race-row').length, 2, 'should contain two race rows');
+  assert.equal(this.$('.rt-race-row').length, 2, 'should contain two race rows');
 });
 
 test('it renders race rows with proper properties', function(assert) {
@@ -48,9 +48,9 @@ test('it renders race rows with proper properties', function(assert) {
   this.render(hbs`{{race/race-list model=races}}`);
 
   // Template block usage:
-  assert.equal(this.$('.race-title').text(), firstRace.name, 'should show race title');
-  assert.equal(this.$('.race-date').text(), moment(firstRace.date).format("MMM Do YYYY"),
+  assert.equal(this.$('.rt-race-title').text(), firstRace.name, 'should show race title');
+  assert.equal(this.$('.rt-race-date').text(), moment(firstRace.date).format("MMM Do YYYY"),
                'should show properly formatted date');
-  assert.equal(this.$('.race-edit a').text(), 'Edit', 'should have link to edit race');
+  assert.equal(this.$('.rt-race-edit a').text(), 'Edit', 'should have link to edit race');
 });
 

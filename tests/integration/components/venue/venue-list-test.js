@@ -30,7 +30,7 @@ test('it renders a row for each venue', function(assert) {
   this.render(hbs`{{venue/venue-list model=venues}}`);
 
   // Template block usage:
-  assert.equal(this.$('.venue-row').length, 2, 'should contain two venue rows');
+  assert.equal(this.$('.rt-venue-row').length, 2, 'should contain two venue rows');
 });
 
 test('it renders venue rows with proper properties', function(assert) {
@@ -45,11 +45,11 @@ test('it renders venue rows with proper properties', function(assert) {
   this.render(hbs`{{venue/venue-list model=venues}}`);
 
   // Template block usage:
-  assert.equal(this.$('.venue-name').text(), firstVenue.name, 'should show venue name');
-  assert.equal(this.$('.venue-logo').children().first().attr('src'), firstVenue.imageUrl, 'should contain image with logo as src');
-  assert.equal(this.$('.venue-logo').children().first().attr('alt'), 'Venue Logo', 'should contain image with proper alt text');
-  assert.equal(this.$('.venue-link a').text(), firstVenue.linkUrl, 'should have proper link href');
-  assert.equal(this.$('.venue-link a').attr('href'), firstVenue.linkUrl, 'should have proper link text');
-  assert.equal(this.$('.venue-edit a').text(), 'Edit', 'should have link to edit venue');
+  assert.equal(this.$('.rt-venue-name').text(), firstVenue.name, 'should show venue name');
+  assert.equal(this.$('.rt-venue-logo').children().first().attr('src'), firstVenue.imageUrl, 'should contain image with logo as src');
+  assert.equal(this.$('.rt-venue-logo').children().first().attr('alt'), 'Venue Logo', 'should contain image with proper alt text');
+  assert.equal(this.$('.rt-venue-link a').text(), firstVenue.linkUrl, 'should have proper link href');
+  assert.equal(this.$('.rt-venue-link a').attr('href'), firstVenue.linkUrl, 'should have proper link text');
+  assert.equal(this.$('.rt-venue-edit a').text(), 'Edit', 'should have link to edit venue');
 });
 

@@ -1,4 +1,4 @@
-<table class='venue-list'>
+<table class='rt-venue-list'>
   <thead>
     <tr>
       <th>Name</th>
@@ -9,11 +9,11 @@
   </thead>
   <tbody>
   {{#each model as |venue|}}
-    <tr class='venue-row'>
-      <td class='venue-name'>{{venue.name}}</td>
-      <td class='venue-logo'><img src={{venue.imageUrl}} alt ="Venue Logo" /></td>
-      <td class='venue-link'><a href={{venue.linkUrl}}>{{venue.linkUrl}}</a></td>
-      <td class='venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
+    <tr class='rt-venue-row'>
+      <td class='rt-venue-name'>{{venue.name}}</td>
+      <td class='rt-venue-logo'><img src={{venue.imageUrl}} alt ="Venue Logo" /></td>
+      <td class='rt-venue-link'><a href={{venue.linkUrl}}>{{venue.linkUrl}}</a></td>
+      <td class='rt-venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
     </tr>
   {{/each}}
   </tbody>
