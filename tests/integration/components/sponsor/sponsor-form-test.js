@@ -1,8 +1,15 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
+import startMirage from '../../../helpers/mirage-integration';
 
 moduleForComponent('sponsor/sponsor-form', 'Integration | Component | sponsor/sponsor form', {
-  integration: true
+  integration: true,
+  beforeEach() {
+    startMirage(this.container);
+  },
+  afterEach() {
+    window.server.shutdown();
+  }
 });
 
 test('it renders', function(assert) {
@@ -11,14 +18,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{sponsor/sponsor-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#sponsor/sponsor-form}}
-      template block text
-    {{/sponsor/sponsor-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('form').length, 1, 'should contain a form');
 });

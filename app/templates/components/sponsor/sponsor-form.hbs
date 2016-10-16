@@ -1,1 +1,25 @@
-{{yield}}
+<h1>Create/Edit Sponsor</h1>
+<form {{action "save" on="submit"}}>
+  <p>
+    <label>Sponsor Name:
+      {{input value=model.name}}
+    </label>
+  </p>
+  <p>
+    <label>Text:
+      {{input value=model.text }}
+    </label>
+  </p>
+  <p>
+    <label>Website:
+      {{input value=model.linkUrl}}
+    </label>
+  </p>
+  <p>
+    <label>Logo:
+      {{input value=model.imageUrl}}
+    </label>
+  </p>
+  <input type="submit" value="Save"/>
+  <button {{action "cancel"}}>Cancel</button>
+</form>
