@@ -1,8 +1,8 @@
 <h1>Create/Edit Sponsor</h1>
-<form {{action "save" on="submit"}}>
+<form {{action "save" on="submit"}} class="rt-sponsor-form">
   <p>
     <label>Sponsor Name:
-      {{input value=model.name placeholder="Sponsor Name"}}
+      {{input value=model.name placeholder="Sponsor Name" class="input__text field__name"}}
     </label>
     {{#if hasValidated }}
       {{#if (v-get this 'model.name' 'isInvalid')}}
@@ -14,7 +14,7 @@
   </p>
   <p>
     <label>Text:
-      {{input value=model.text }}
+      {{input value=model.text placeholder="Sponsor Tagline" class="input__text field__description" }}
     </label>
     {{#if hasValidated }}
       {{#if (v-get this 'model.text' 'isInvalid')}}
@@ -26,7 +26,7 @@
   </p>
   <p>
     <label>Website:
-      {{input value=model.linkUrl}}
+      {{input value=model.linkUrl placeholder="Website" class="input__url field__website"}}
     </label>
     {{#if hasValidated }}
       {{#if (v-get this 'model.linkUrl' 'isInvalid')}}
@@ -38,7 +38,7 @@
   </p>
   <p>
     <label>Logo:
-      {{input value=model.imageUrl}}
+      {{input value=model.imageUrl placeholder="Image" class="input__url field__image"}}
     </label>
     {{#if hasValidated }}
       {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
@@ -48,7 +48,7 @@
       {{/if}}
     {{/if}}
   </p>
-  <input type="submit" value="Save" />
-  <button {{action "cancel"}}>Cancel</button>
+  <button type="submit" value="Save" class="input__save">Save</button>
+  <button {{action "cancel"}} class="input__cancel">Cancel</button>
 </form>
 

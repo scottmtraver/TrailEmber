@@ -5,8 +5,7 @@ const Validations = buildValidations({
   'model.name': [
     validator('presence', true),
     validator('length', {
-      min: 1,
-      max: 50
+      min: 1
     })
   ],
   'model.linkUrl': [
