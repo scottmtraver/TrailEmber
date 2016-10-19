@@ -1,5 +1,5 @@
 <h1>Create/Edit Sponsor</h1>
-<form {{action "save" on="submit"}} class="rt-sponsor-form">
+<form {{action "save" on="submit"}} class="rt-venue-form">
   <p>
     <label>Sponsor Name:
       {{input value=model.name placeholder="Sponsor Name" class="input__text field__name"}}
@@ -17,9 +17,9 @@
       {{input value=model.description placeholder="Sponsor Tagline" class="input__text field__description" }}
     </label>
     {{#if hasValidated }}
-      {{#if (v-get this 'model.description' 'isInvalid')}}
+      {{#if (v-get this 'model.text' 'isInvalid')}}
         <div class="error">
-          {{v-get this 'model.description' 'message'}}
+          {{v-get this 'model.text' 'message'}}
         </div>
       {{/if}}
     {{/if}}
@@ -32,6 +32,18 @@
       {{#if (v-get this 'model.linkUrl' 'isInvalid')}}
         <div class="error">
           {{v-get this 'model.linkUrl' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
+  </p>
+  <p>
+    <label>Directions:
+      {{input value=model.directionsUrl placeholder="Directions" class="input__url field__directions"}}
+    </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.directionsUrl' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.directionsUrl' 'message'}}
         </div>
       {{/if}}
     {{/if}}
@@ -51,4 +63,5 @@
   <button type="submit" value="Save" class="input__save">Save</button>
   <button {{action "cancel"}} class="input__cancel">Cancel</button>
 </form>
+
 

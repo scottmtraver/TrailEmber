@@ -29,7 +29,6 @@ test('it renders a row for each venue', function(assert) {
 
   this.render(hbs`{{venue/venue-list model=venues}}`);
 
-  // Template block usage:
   assert.equal(this.$('.rt-venue-row').length, 2, 'should contain two venue rows');
 });
 
@@ -44,7 +43,6 @@ test('it renders venue rows with proper properties', function(assert) {
 
   this.render(hbs`{{venue/venue-list model=venues}}`);
 
-  // Template block usage:
   assert.equal(this.$('.rt-venue-name').text(), firstVenue.name, 'should show venue name');
   assert.equal(this.$('.rt-venue-logo').children().first().attr('src'), firstVenue.imageUrl, 'should contain image with logo as src');
   assert.equal(this.$('.rt-venue-logo').children().first().attr('alt'), 'Venue Logo', 'should contain image with proper alt text');
