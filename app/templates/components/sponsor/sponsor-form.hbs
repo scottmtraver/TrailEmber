@@ -2,24 +2,53 @@
 <form {{action "save" on="submit"}}>
   <p>
     <label>Sponsor Name:
-      {{input value=model.name}}
+      {{input value=model.name placeholder="Sponsor Name"}}
     </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.name' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.name' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
   </p>
   <p>
     <label>Text:
       {{input value=model.text }}
     </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.text' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.text' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
   </p>
   <p>
     <label>Website:
       {{input value=model.linkUrl}}
     </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.linkUrl' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.linkUrl' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
   </p>
   <p>
     <label>Logo:
       {{input value=model.imageUrl}}
     </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.imageUrl' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
   </p>
-  <input type="submit" value="Save"/>
+  <input type="submit" value="Save" />
   <button {{action "cancel"}}>Cancel</button>
 </form>
+
