@@ -11,5 +11,5 @@ export default Factory.extend({
   imageUrl() { return faker.image.imageUrl(); },
   resultsUrl() { return faker.internet.url(); },
   courseUrl() { return faker.internet.url(); },
-  courseText() { return faker.lorem.sentences(); }
+  courseDescription() { return faker.lorem.sentences(); }
 });

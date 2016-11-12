@@ -12,5 +12,5 @@ export default Model.extend({
   imageUrl: attr('string'),
   resultsUrl: attr('string'),
   courseUrl: attr('string'),
-  courseText: attr('string')
+  courseDescription: attr('string')
 });
