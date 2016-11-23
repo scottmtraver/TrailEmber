@@ -2,7 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params) {
-    return this.store.find('race', params.race_id);
+    return Ember.RSVP.hash({
+      race: this.store.find('race', params.race_id),
+      venueOptions: this.store.findAll('venue')
+    });
   },
   actions:{
     save: function(race){
@@ -14,7 +17,7 @@ export default Ember.Route.extend({
       this.transitionTo('races');
     },
     willTransition() {
-      this.controller.get('model').rollbackAttributes();
+      this.controller.get('model.race').rollbackAttributes();
     }
   }
 });

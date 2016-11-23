@@ -20,7 +20,7 @@ test('it renders', function(assert) {
 
   assert.equal(this.$('form').length, 1, 'should contain a form');
 });
-test('it has all the appropriate fields', function(assert) {
+test('it has all the appropriate static fields', function(assert) {
 
   let race = server.create('race');
 
@@ -59,4 +59,17 @@ test('it has basic validation', function(assert) {
   this.$('.rt-race-form button.input__save').click();//default state should not be valid
 
   assert.equal(this.$('.error').length, 1, 'should contain an error for the missing name');
+});
+
+test('it has basic validation', function(assert) {
+  assert.expect(1);
+
+  let venue = server.create('venue', { id: 1 });
+  let race = server.create('race', { venue: venue.id });//set venue
+
+  this.set('race', race);
+
+  this.render(hbs`{{race/race-form model=race}}`);
+
+  assert.equal(this.$('.rt-venue-preview').length, 1, 'should contain a venue preview component');
 });

@@ -11,7 +11,7 @@
     <tr class='rt-race-row'>
       <td class='rt-race-title'>{{race.name}}</td>
       <td class='rt-race-date'>{{moment-format race.date 'MMM Do YYYY'}}</td>
-      <td class='rt-race-edit'>{{link-to "Edit" "races.edit" race}}</td>
+      <td class='rt-race-edit'>{{link-to "Edit" "races.edit" race.id}}</td>
     </tr>
   {{/each}}
   </tbody>
