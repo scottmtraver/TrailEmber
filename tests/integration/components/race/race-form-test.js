@@ -58,7 +58,7 @@ test('it has basic validation', function(assert) {
 
   this.$('.rt-race-form button.input__save').click();//default state should not be valid
 
-  assert.equal(this.$('.error').length, 1, 'should contain an error for the missing name');
+  assert.equal(this.$('.error').length, 2, 'should contain an error for the missing name and venue');
 });
 
 test('it has basic validation', function(assert) {

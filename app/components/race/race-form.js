@@ -25,6 +25,9 @@ const Validations = buildValidations({
   ],
   'model.distance': [
     validator('presence', true)
+  ],
+  'model.venue': [
+    validator('presence', true)
   ]
 });
 
@@ -41,6 +44,9 @@ export default Ember.Component.extend(Validations, {
     },
     cancel() {
       this.sendAction('cancel');
+    },
+    select(venue) {
+      this.set('model.venueId', venue.id);
     }
   }
 });

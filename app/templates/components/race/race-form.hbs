@@ -1,4 +1,3 @@
-
 <h1>Create/Edit Race</h1>
 <form {{action "save" on="submit"}} class="rt-race-form">
   <p>
@@ -36,6 +35,24 @@
         </div>
       {{/if}}
     {{/if}}
+  </p>
+  <p>
+    <label>Venue:
+      {{#x-select value=model.venue as |xs|}}
+        <option>Not Selected</option>
+        {{#each venueOptions as |v index|}}
+          {{#xs.option value=v}}{{v.name}}{{/xs.option}}
+        {{/each}}
+      {{/x-select}}
+    </label>
+    {{#if hasValidated }}
+      {{#if (v-get this 'model.venue' 'isInvalid')}}
+        <div class="error">
+          {{v-get this 'model.venue' 'message'}}
+        </div>
+      {{/if}}
+    {{/if}}
+    {{venue/venue-view model=model.venue }}
   </p>
   <p>
     <label>Registration:
