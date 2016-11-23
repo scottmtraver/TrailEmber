@@ -39,7 +39,9 @@
   <p>
     <label>Venue:
       {{#x-select value=model.venue as |xs|}}
-        <option>Not Selected</option>
+        {{#unless model.venue }}
+          {{#xs.option value=null selected=true}}No Venue{{/xs.option}}
+        {{/unless}}
         {{#each venueOptions as |v index|}}
           {{#xs.option value=v}}{{v.name}}{{/xs.option}}
         {{/each}}
