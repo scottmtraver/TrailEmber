@@ -22,7 +22,8 @@ test('it renders', function(assert) {
 });
 test('it has all the appropriate static fields', function(assert) {
 
-  let race = server.create('race');
+  let venue = server.create('venue');
+  let race = server.create('race', { venue });
 
   this.set('race', race);
 
@@ -50,7 +51,7 @@ test('it has all the appropriate static fields', function(assert) {
 test('it has basic validation', function(assert) {
   assert.expect(1);
 
-  let race = server.create('race', { name: '' });//no name
+  let race = server.create('race', { venue: null, name: '' });
 
   this.set('race', race);
 
@@ -64,8 +65,8 @@ test('it has basic validation', function(assert) {
 test('it has basic validation', function(assert) {
   assert.expect(1);
 
-  let venue = server.create('venue', { id: 1 });
-  let race = server.create('race', { venue: venue.id });//set venue
+  let venue = server.create('venue');
+  let race = server.create('race', { venue });
 
   this.set('race', race);
 

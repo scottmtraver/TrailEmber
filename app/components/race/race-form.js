@@ -44,9 +44,6 @@ export default Ember.Component.extend(Validations, {
     },
     cancel() {
       this.sendAction('cancel');
-    },
-    select(venue) {
-      this.set('model.venueId', venue.id);
     }
   }
 });

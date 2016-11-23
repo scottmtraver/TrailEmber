@@ -2,7 +2,7 @@ import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('venue', 'Unit | Model | venue', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:race']
 });
 
 test('it exists', function(assert) {

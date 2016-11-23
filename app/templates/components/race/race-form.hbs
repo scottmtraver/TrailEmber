@@ -52,7 +52,9 @@
         </div>
       {{/if}}
     {{/if}}
-    {{venue/venue-view model=model.venue }}
+    {{#if model.venue }}
+      {{venue/venue-view model=model.venue }}
+    {{/if}}
   </p>
   <p>
     <label>Registration:
