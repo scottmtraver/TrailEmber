@@ -12,7 +12,7 @@
     <tr class='rt-sponsor-row'>
       <td class='rt-sponsor-name'>{{sponsor.name}}</td>
       <td class='rt-sponsor-logo center aligned collapsing'><img src={{sponsor.imageUrl}} alt ="Sponsor Logo" class="ui tiny image" /></td>
-      <td class='rt-sponsor-link'><a href={{sponsor.linkUrl}}>{{sponsor.linkUrl}}</a></td>
+      <td class='rt-sponsor-link'><a href={{sponsor.linkUrl}} target="_blank">{{sponsor.linkUrl}}</a></td>
       <td class='rt-sponsor-edit'>{{link-to "Edit" "sponsors.edit" sponsor}}</td>
     </tr>
   {{/each}}

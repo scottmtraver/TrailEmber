@@ -12,7 +12,7 @@
     <tr class='rt-venue-row'>
       <td class='rt-venue-name'>{{venue.name}}</td>
       <td class='rt-venue-logo center aligned collapsing'><img src={{venue.imageUrl}} alt ="Venue Logo" class="ui tiny image" /></td>
-      <td class='rt-venue-link'><a href={{venue.linkUrl}}>{{venue.linkUrl}}</a></td>
+      <td class='rt-venue-link'><a href={{venue.linkUrl}} target="_blank">{{venue.linkUrl}}</a></td>
       <td class='rt-venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
     </tr>
   {{/each}}

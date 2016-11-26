@@ -31,7 +31,6 @@
       {{/if}}
     </label>
     {{input value=model.linkUrl placeholder="Website" class="input__url field__website"}}
-    
   </div>
   <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
     <label>Logo:
@@ -46,4 +45,3 @@
   <button type="submit" value="Save" class="input__save ui button green">Save</button>
   <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
 </form>
-
