@@ -45,6 +45,7 @@
     "ember-test-helpers": "^0.5.34",
     "emberx-select": "2.2.2",
     "loader.js": "^4.0.1",
-    "phantomjs": "^2.1.7"
+    "phantomjs": "^2.1.7",
+    "semantic-ui-ember": "2.0.0"
   }
 }
