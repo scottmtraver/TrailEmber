@@ -1,3 +1,10 @@
-{{#link-to 'venues.new' class='rt-venue-new'}}Create Venue{{/link-to}}
-{{venue/venue-list model=model}}
-{{outlet}}
+<div class="ui segment">
+  <div class="ui item">
+    {{#link-to 'venues.new' class='rt-venue-new ui green button'}}Create Venue{{/link-to}}
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui item">
+    {{venue/venue-list model=model}}
+  </div>
+  {{outlet}}
+</div>

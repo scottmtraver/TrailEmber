@@ -1,3 +1,10 @@
-{{#link-to 'sponsors.new' class='rt-sponsor-new'}}Create Sponsor{{/link-to}}
-{{sponsor/sponsor-list model=model}}
-{{outlet}}
+<div class="ui segment">
+  <div class="ui item">
+    {{#link-to 'sponsors.new' class='rt-sponsor-new ui green button'}}Create Sponsor{{/link-to}}
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui item">
+    {{sponsor/sponsor-list model=model}}
+  </div>
+  {{outlet}}
+</div>
