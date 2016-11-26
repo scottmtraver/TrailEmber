@@ -1,54 +1,49 @@
-<h1>Create/Edit Sponsor</h1>
-<form {{action "save" on="submit"}} class="rt-sponsor-form">
-  <p>
-    <label>Sponsor Name:
+<h2 class="ui dividing header">Edit Sponsor</h2>
+<form {{action "save" on="submit"}} class="rt-sponsor-form ui form">
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.name' 'isInvalid')) "error"}}">
+      <label>Sponsor Name:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.name' 'isInvalid')}}
+            {{v-get this 'model.name' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
       {{input value=model.name placeholder="Sponsor Name" class="input__text field__name"}}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.name' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.name' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Description:
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.description' 'isInvalid')) "error"}}">
+      <label>Description:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.description' 'isInvalid')}}
+            {{v-get this 'model.description' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
       {{input value=model.description placeholder="Sponsor Tagline" class="input__text field__description" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.description' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.description' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
+    </div>
+  </div>
+  <div class="field {{if (and hasValidated (v-get this 'model.linkUrl' 'isInvalid')) "error"}}">
     <label>Website:
-      {{input value=model.linkUrl placeholder="Website" class="input__url field__website"}}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.linkUrl' 'isInvalid')}}
-        <div class="error">
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.linkUrl' 'isInvalid')}}
           {{v-get this 'model.linkUrl' 'message'}}
-        </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Logo:
-      {{input value=model.imageUrl placeholder="Image" class="input__url field__image"}}
     </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
-        <div class="error">
+    {{input value=model.linkUrl placeholder="Website" class="input__url field__website"}}
+    
+  </div>
+  <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
+    <label>Logo:
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
           {{v-get this 'model.imageUrl' 'message'}}
-        </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
-  </p>
-  <button type="submit" value="Save" class="input__save">Save</button>
-  <button {{action "cancel"}} class="input__cancel">Cancel</button>
+    </label>
+    {{input value=model.imageUrl placeholder="Image" class="input__url field__image"}}
+  </div>
+  <button type="submit" value="Save" class="input__save ui button green">Save</button>
+  <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
 </form>
 
