@@ -56,6 +56,9 @@ export default Ember.Component.extend(Validations, {
     },
     cancel() {
       this.sendAction('cancel');
+    },
+    changeDate(newDate) {
+      this.set('model.date', newDate);
     }
   }
 });

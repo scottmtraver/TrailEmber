@@ -20,7 +20,8 @@
           {{/if}}
         {{/if}}
       </label>
-      {{input value=model.date placeholder="Date" class="input__date field__date" }}
+      {{pikaday-input value=model.date format="MM/DD/YYYY" placeholder="Race Day"
+      onSelection=(action 'changeDate') class="input__date field__date"}}
     </div>
     <div class="field {{if (and hasValidated (v-get this 'model.registrationTime' 'isInvalid')) "error"}}">
       <label>Registration:
