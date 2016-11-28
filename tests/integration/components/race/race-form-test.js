@@ -30,7 +30,6 @@ test('it has all the appropriate static fields', function(assert) {
   this.render(hbs`{{race/race-form model=race}}`);
 
   assert.equal(this.$('.rt-race-form input.input__text.field__name').length, 1, 'should contain a name input');
-  assert.equal(this.$('.rt-race-form textarea.input__text.field__description').length, 1, 'should contain a description input');
   assert.equal(this.$('.rt-race-form input.input__date.field__date').length, 1, 'should contain a date input');
 
   assert.equal(this.$('.rt-race-form input.input__time.field__registration').length, 1, 'should contain a registration time input');

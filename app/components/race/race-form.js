@@ -2,33 +2,45 @@ import Ember from 'ember';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
-  'model.name': [
+
+  'model.name': {
+    description: 'Name',
+    validators: [
     validator('presence', true),
     validator('length', {
       min: 1
     })
-  ],
-  'model.description': [
+  ]},
+  'model.date': {
+    description: 'Date',
+    validators: [
     validator('presence', true)
-  ],
-  'model.date': [
+  ]},
+  'model.registrationTime': {
+    description: 'Registration Time',
+    validators:[
     validator('presence', true)
-  ],
-  'model.registrationTime': [
+  ]},
+  'model.startTime': {
+    description: 'Start Time',
+    validators: [
     validator('presence', true)
-  ],
-  'model.startTime': [
+  ]},
+  'model.cost': {
+    description: 'Cost',
+    validators: [
     validator('presence', true)
-  ],
-  'model.cost': [
+  ]},
+  'model.distance': {
+    description: 'Distance',
+    validators: [
     validator('presence', true)
-  ],
-  'model.distance': [
+  ]},
+  'model.venue': {
+    description: 'Venue',
+    validators: [
     validator('presence', true)
-  ],
-  'model.venue': [
-    validator('presence', true)
-  ]
+  ]}
 });
 
 export default Ember.Component.extend(Validations, {

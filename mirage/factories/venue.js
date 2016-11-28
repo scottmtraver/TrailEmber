@@ -1,7 +1,7 @@
 import { Factory, faker } from 'ember-cli-mirage';
 
 export default Factory.extend({
-  name(i) { return 'Venue ' + i + ' ' + faker.lorem.sentence(); },
+  name(i) { return 'Venue ' + i + ' ' + faker.company.companyName(); },
   description() { return faker.lorem.sentences(); },
   directionsUrl() { return faker.internet.url(); },
   linkUrl() { return faker.internet.url(); },

@@ -1,44 +1,115 @@
-<h1>Create/Edit Race</h1>
-<form {{action "save" on="submit"}} class="rt-race-form">
-  <p>
+<h2 class="ui dividing header">Edit Race</h2>
+
+<form {{action "save" on="submit"}} class="rt-race-form ui form">
+  <div class="field {{if (and hasValidated (v-get this 'model.name' 'isInvalid')) "error"}}">
     <label>Race Name:
-      {{input value=model.name placeholder="Race Name" class="input__text field__name"}}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.name' 'isInvalid')}}
-        <div class="error">
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.name' 'isInvalid')}}
           {{v-get this 'model.name' 'message'}}
-        </div>
+        {{/if}}
       {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Description:
-      {{textarea value=model.description placeholder="Race Tagline" class="input__text field__description" }}
     </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.description' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.description' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Date:
+    {{input value=model.name placeholder="Race Name" class="input__text field__name"}}
+  </div>
+  <div class="three fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.date' 'isInvalid')) "error"}}">
+      <label>Date:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.date' 'isInvalid')}}
+            {{v-get this 'model.date' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
       {{input value=model.date placeholder="Date" class="input__date field__date" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.date' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.date' 'message'}}
-        </div>
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.registrationTime' 'isInvalid')) "error"}}">
+      <label>Registration:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.registrationTime' 'isInvalid')}}
+            {{v-get this 'model.registrationTime' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.registrationTime placeholder="Registration" class="input__time field__registration" }}
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.startTime' 'isInvalid')) "error"}}">
+      <label>Start:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.startTime' 'isInvalid')}}
+              {{v-get this 'model.startTime' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.startTime placeholder="Start" class="input__time field__start" }}
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.cost' 'isInvalid')) "error"}}">
+      <label>Cost:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.cost' 'isInvalid')}}
+            {{v-get this 'model.cost' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.cost placeholder="Cost" class="input__text field__cost" }}
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.distance' 'isInvalid')) "error"}}">
+      <label>Distances:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.distance' 'isInvalid')}}
+            {{v-get this 'model.distance' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.distance placeholder="Distances" class="input__text field__distance" }}
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.courseUrl' 'isInvalid')) "error"}}">
+      <label>Course Link:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.courseUrl' 'isInvalid')}}
+            {{v-get this 'model.courseUrl' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.courseUrl placeholder="Course Link" class="input__url field__courseLink" }}
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.courseDescription' 'isInvalid')) "error"}}">
+      <label>Course Description:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.courseDescription' 'isInvalid')}}
+            <div class="error">
+              {{v-get this 'model.courseDescription' 'message'}}
+            </div>
+          {{/if}}
+        {{/if}}
+      </label>
+      {{textarea value=model.courseDescription placeholder="Course Description" class="input__text field__courseText" }}
+    </div>
+  </div>
+  <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
+    <label>Image:
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
+          {{v-get this 'model.imageUrl' 'message'}}
+        {{/if}}
       {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Venue:
-      {{#x-select value=model.venue as |xs|}}
+    </label>
+    {{input value=model.imageUrl placeholder="Image Link" class="input__url field__image" }}
+  </div>
+
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.venue' 'isInvalid')) "error"}}">
+      <label>Venue:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.venue' 'isInvalid')}}
+            {{v-get this 'model.venue' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{#x-select class="ui selection dropdown" value=model.venue as |xs|}}
         {{#unless model.venue }}
           {{#xs.option value=null selected=true}}No Venue{{/xs.option}}
         {{/unless}}
@@ -46,115 +117,25 @@
           {{#xs.option value=v}}{{v.name}}{{/xs.option}}
         {{/each}}
       {{/x-select}}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.venue' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.venue' 'message'}}
-        </div>
+    </div>
+    <div class="field">
+      {{#if model.venue }}
+        {{venue/venue-view model=model.venue }}
       {{/if}}
-    {{/if}}
-    {{#if model.venue }}
-      {{venue/venue-view model=model.venue }}
-    {{/if}}
-  </p>
-  <p>
-    <label>Registration:
-      {{input value=model.registrationTime placeholder="Registration" class="input__time field__registration" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.registrationTime' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.registrationTime' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Start:
-      {{input value=model.startTime placeholder="Start" class="input__time field__start" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.startTime' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.startTime' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Cost:
-      {{input value=model.cost placeholder="Cost" class="input__text field__cost" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.cost' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.cost' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Start:
-      {{input value=model.distance placeholder="Distances" class="input__text field__distance" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.distance' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.distance' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Image:
-      {{input value=model.imageUrl placeholder="Distances" class="input__url field__image" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.imageUrl' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Results:
-      {{input value=model.resultsUrl placeholder="Distances" class="input__url field__results" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.resultsUrl' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Course Link:
-      {{input value=model.courseUrl placeholder="Course Link" class="input__url field__courseLink" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.courseUrl' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.courseUrl' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <p>
-    <label>Course Description:
-      {{textarea value=model.courseDescription placeholder="Course Description" class="input__text field__courseText" }}
-    </label>
-    {{#if hasValidated }}
-      {{#if (v-get this 'model.courseDescription' 'isInvalid')}}
-        <div class="error">
-          {{v-get this 'model.courseDescription' 'message'}}
-        </div>
-      {{/if}}
-    {{/if}}
-  </p>
-  <button type="submit" value="Save" class="input__save">Save</button>
-  <button {{action "cancel"}} class="input__cancel">Cancel</button>
-</form>
+    </div>
+  </div>
 
+  <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) "error"}}">
+    <label>Results:
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
+          {{v-get this 'model.resultsUrl' 'message'}}
+        {{/if}}
+      {{/if}}
+    </label>
+    {{input value=model.resultsUrl placeholder="Results Link" class="input__url field__results" }}
+  </div>
+
+  <button type="submit" value="Save" class="input__save ui button green">Save</button>
+  <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
+</form>
