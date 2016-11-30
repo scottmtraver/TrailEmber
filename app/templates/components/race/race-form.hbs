@@ -77,6 +77,18 @@
       </label>
       {{input value=model.courseUrl placeholder="Course Link" class="input__url field__courseLink" }}
     </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.courseImageUrl' 'isInvalid')) "error"}}">
+      <label>Course Image:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.courseImageUrl' 'isInvalid')}}
+            {{v-get this 'model.courseImageUrl' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.courseImageUrl placeholder="Course Image" class="input__url field__courseImageLink" }}
+    </div>
+  </div>
+  <div class="two fields">
     <div class="field {{if (and hasValidated (v-get this 'model.courseDescription' 'isInvalid')) "error"}}">
       <label>Course Description:
         {{#if hasValidated }}
@@ -88,6 +100,11 @@
         {{/if}}
       </label>
       {{textarea value=model.courseDescription placeholder="Course Description" class="input__text field__courseText" }}
+    </div>
+    <div class="field">
+      {{#if model.courseImageUrl }}
+        <img src={{model.courseImageUrl}} alt="Course Image" class='rt-course-image ui medium image' />
+      {{/if}}
     </div>
   </div>
   <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">

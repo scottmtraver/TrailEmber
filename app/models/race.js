@@ -13,6 +13,7 @@ export default Model.extend({
   imageUrl: attr('string'),
   resultsUrl: attr('string'),
   courseUrl: attr('string'),
+  courseImageUrl: attr('string'),
   courseDescription: attr('string'),
   venue: DS.belongsTo('venue')
 });
