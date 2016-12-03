@@ -41,6 +41,7 @@
       {{/if}}
     </label>
     {{input value=model.imageUrl placeholder="Image" class="input__url field__image"}}
+    {{cloudinary-direct-file signatureEndpoint='/sign_upload'}}
   </div>
   <button type="submit" value="Save" class="input__save ui button green">Save</button>
   <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
