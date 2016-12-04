@@ -44,6 +44,10 @@ export default Ember.Component.extend(Validations, {
     },
     cancel() {
       this.sendAction('cancel');
+    },
+    imageUploaded (event, data) {
+      var url = data._response.result.secure_url;
+      this.set('model.imageUrl', url);
     }
   }
 });

@@ -32,17 +32,27 @@
     </label>
     {{input value=model.linkUrl placeholder="Website" class="input__url field__website"}}
   </div>
-  <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
-    <label>Logo:
-      {{#if hasValidated }}
-        {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
-          {{v-get this 'model.imageUrl' 'message'}}
+  <div class="two fields">
+    <div class="four wide field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
+      <label>Logo:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
+            {{v-get this 'model.imageUrl' 'message'}}
+          {{/if}}
         {{/if}}
+      </label>
+
+
+      {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "imageUploaded")}}
+
+    </div>
+    <div class="four wide field">
+      {{#if model.imageUrl }}
+        <img src={{model.imageUrl}} alt="Venue Logo" class='rt-venue-logo-preview ui small image' />
       {{/if}}
-    </label>
-    {{input value=model.imageUrl placeholder="Image" class="input__url field__image"}}
-    {{cloudinary-direct-file signatureEndpoint='/sign_upload'}}
+    </div>
   </div>
+
   <button type="submit" value="Save" class="input__save ui button green">Save</button>
   <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
 </form>
