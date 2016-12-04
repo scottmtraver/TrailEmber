@@ -4,7 +4,6 @@ import DS from 'ember-data';
 
 export default Model.extend({
   name: attr('string'),
-  description: attr('string'),
   date: attr('string'),
   registrationTime: attr('string'),
   startTime: attr('string'),
