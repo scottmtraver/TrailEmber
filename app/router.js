@@ -25,6 +25,7 @@ Router.map(function() {
       path: ':venue_id/edit'
     });
   });
+  this.route('login');
 });
 
 export default Router;
