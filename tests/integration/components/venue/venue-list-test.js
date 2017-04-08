@@ -33,7 +33,7 @@ test('it renders a row for each venue', function(assert) {
 });
 
 test('it renders venue rows with proper properties', function(assert) {
-  assert.expect(6);
+  assert.expect(8);
 
   let firstVenue = server.create('venue');
 
@@ -46,8 +46,10 @@ test('it renders venue rows with proper properties', function(assert) {
   assert.equal(this.$('.rt-venue-name').text(), firstVenue.name, 'should show venue name');
   assert.equal(this.$('.rt-venue-logo').children().first().attr('src'), firstVenue.imageUrl, 'should contain image with logo as src');
   assert.equal(this.$('.rt-venue-logo').children().first().attr('alt'), 'Venue Logo', 'should contain image with proper alt text');
-  assert.equal(this.$('.rt-venue-link a').text(), firstVenue.linkUrl, 'should have proper link href');
-  assert.equal(this.$('.rt-venue-link a').attr('href'), firstVenue.linkUrl, 'should have proper link text');
+  assert.equal(this.$('.rt-venue-link a').text(), firstVenue.linkUrl, 'should have proper link text');
+  assert.equal(this.$('.rt-venue-link a').attr('href'), firstVenue.linkUrl, 'should have proper link href');
+  assert.equal(this.$('.rt-venue-directions a').text(), 'Directions', 'should have proper direcitons link text');
+  assert.equal(this.$('.rt-venue-directions a').attr('href'), firstVenue.directionsUrl, 'should have proper direcitons href');
   assert.equal(this.$('.rt-venue-edit a').text(), 'Edit', 'should have link to edit venue');
 });
 

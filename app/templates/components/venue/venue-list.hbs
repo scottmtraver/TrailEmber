@@ -1,9 +1,10 @@
 <table class='rt-venue-list ui celled striped table'>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Venue</th>
       <th>Logo</th>
       <th>Link</th>
+      <th>Directions</th>
       <th></th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
       <td class='rt-venue-name'>{{venue.name}}</td>
       <td class='rt-venue-logo center aligned collapsing'><img src={{venue.imageUrl}} alt ="Venue Logo" class="ui tiny image" /></td>
       <td class='rt-venue-link'><a href={{venue.linkUrl}} target="_blank">{{venue.linkUrl}}</a></td>
+      <td class='rt-venue-directions'><a href={{venue.directionsUrl}} target="_blank">Directions</a></td>
       <td class='rt-venue-edit'>{{link-to "Edit" "venues.edit" venue}}</td>
     </tr>
   {{/each}}
