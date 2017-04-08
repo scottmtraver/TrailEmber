@@ -14,5 +14,6 @@ export default Model.extend({
   courseUrl: attr('string'),
   courseImageUrl: attr('string'),
   courseDescription: attr('string'),
-  venue: DS.belongsTo('venue')
+  venue: DS.belongsTo('venue'),
+  sponsor: DS.belongsTo('sponsor')
 });

@@ -1,5 +1,6 @@
 import { Model, belongsTo } from 'ember-cli-mirage';
 
 export default Model.extend({
-  venue: belongsTo('venue')
+  venue: belongsTo('venue'),
+  sponsor: belongsTo('sponsor')
 });
