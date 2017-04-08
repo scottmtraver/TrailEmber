@@ -4,7 +4,8 @@ export default Ember.Route.extend({
   model(params) {
     return Ember.RSVP.hash({
       race: this.store.find('race', params.race_id),
-      venueOptions: this.store.findAll('venue')
+      venueOptions: this.store.findAll('venue'),
+      sponsorOptions: this.store.findAll('sponsor')
     });
   },
   actions:{
