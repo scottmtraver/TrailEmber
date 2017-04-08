@@ -3,7 +3,6 @@ import attr from 'ember-data/attr';
 
 export default Model.extend({
   name: attr('string'),
-  description: attr('string'),
   linkUrl: attr('string'),
   imageUrl: attr('string')
 });
