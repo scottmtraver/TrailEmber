@@ -1,12 +1,17 @@
-/*
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import startMirage from '../../../helpers/mirage-integration';
+import Ember from 'ember';
 
 moduleForComponent('venue/venue-form', 'Integration | Component | venue/venue form', {
   integration: true,
   beforeEach() {
     startMirage(this.container);
+
+    //Cloudinary stub
+    Ember.$.get = function() {
+      return { done(cb) { cb({ some: 'response' }); } };
+    };
   },
   afterEach() {
     window.server.shutdown();
@@ -19,6 +24,7 @@ test('it renders', function(assert) {
 
   assert.equal(this.$('form').length, 1, 'should contain a form');
 });
+
 test('it has all the appropriate fields', function(assert) {
   assert.expect(7);
 
@@ -50,4 +56,3 @@ test('it has basic validation', function(assert) {
 
   assert.equal(this.$('.error').length, 1, 'should contain an error for the missing name');
 });
-*/
