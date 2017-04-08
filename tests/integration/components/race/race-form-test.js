@@ -43,7 +43,7 @@ test('it has all the appropriate static fields', function(assert) {
   assert.equal(this.$('.rt-race-form input.input__url.field__results').length, 1, 'should contain a results input');
 
   assert.equal(this.$('.rt-race-form input.input__url.field__courseLink').length, 1, 'should contain a course link input');
-  assert.equal(this.$('.rt-race-form textarea.input__text.field__courseText').length, 1, 'should contain a course text input');
+  assert.equal(this.$('.rt-race-form .input__text.field__courseText').length, 1, 'should contain a course text input');
 
   assert.equal(this.$('.rt-race-form button.input__save').length, 1, 'should contain a save button');
   assert.equal(this.$('.rt-race-form button.input__cancel').length, 1, 'should contain a cancel button');

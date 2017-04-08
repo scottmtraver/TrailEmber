@@ -99,7 +99,8 @@
           {{/if}}
         {{/if}}
       </label>
-      {{textarea value=model.courseDescription placeholder="Course Description" class="input__text field__courseText" }}
+      {{froala-editor content=model.courseDescription update=(action (mut model.courseDescription)) options=(hash heightMin=200)
+        class="input__text field__courseText"}}
     </div>
     <div class="field">
       {{#if model.courseImageUrl }}
