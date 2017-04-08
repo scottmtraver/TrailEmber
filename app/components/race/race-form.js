@@ -59,6 +59,14 @@ export default Ember.Component.extend(Validations, {
     },
     changeDate(newDate) {
       this.set('model.date', newDate);
+    },
+    imageUploaded (event, data) {
+      var url = data._response.result.secure_url;
+      this.set('model.courseImageUrl', url);
+    },
+    resultsUploaded (event, data) {
+      var url = data._response.result.secure_url;
+      this.set('model.resultsUrl', url);
     }
   }
 });

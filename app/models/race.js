@@ -9,7 +9,6 @@ export default Model.extend({
   startTime: attr('string'),
   cost: attr('string'),
   distance: attr('string'),
-  imageUrl: attr('string'),
   resultsUrl: attr('string'),
   courseUrl: attr('string'),
   courseImageUrl: attr('string'),

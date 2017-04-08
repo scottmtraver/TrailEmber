@@ -85,7 +85,7 @@
           {{/if}}
         {{/if}}
       </label>
-      {{input value=model.courseImageUrl placeholder="Course Image" class="input__url field__courseImageLink" }}
+      {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "imageUploaded") title=" " class="field__courseImageUrl"}}
     </div>
   </div>
   <div class="two fields">
@@ -107,16 +107,6 @@
         <img src={{model.courseImageUrl}} alt="Course Image" class='rt-course-image ui medium image' />
       {{/if}}
     </div>
-  </div>
-  <div class="field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
-    <label>Image:
-      {{#if hasValidated }}
-        {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
-          {{v-get this 'model.imageUrl' 'message'}}
-        {{/if}}
-      {{/if}}
-    </label>
-    {{input value=model.imageUrl placeholder="Image Link" class="input__url field__image" }}
   </div>
 
   <div class="two fields">
@@ -169,15 +159,24 @@
     </div>
   </div>
 
-  <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) "error"}}">
-    <label>Results:
-      {{#if hasValidated }}
-        {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
-          {{v-get this 'model.resultsUrl' 'message'}}
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) "error"}}">
+      <label>Results:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
+            {{v-get this 'model.resultsUrl' 'message'}}
+          {{/if}}
         {{/if}}
-      {{/if}}
-    </label>
-    {{input value=model.resultsUrl placeholder="Results Link" class="input__url field__results" }}
+      </label>
+      {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "resultsUploaded") title=" " class="field_resultsUrl"}}
+    </div>
+    <div class="field">
+      <label>Results:
+      </label>
+        {{#if model.resultsUrl }}
+          <a target="_blank" href={{model.resultsUrl}}>Link to current results</a>
+        {{/if}}
+    </div>
   </div>
 
   <button type="submit" value="Save" class="input__save ui button green">Save</button>

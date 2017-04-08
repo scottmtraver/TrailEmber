@@ -1,11 +1,16 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import startMirage from '../../../helpers/mirage-integration';
+import Ember from 'ember';
 
 moduleForComponent('race/race-form', 'Integration | Component | race/race form', {
   integration: true,
   beforeEach() {
     startMirage(this.container);
+
+    Ember.$.get = function() {
+      return { done(cb) { cb({ some: 'response' }); } };
+    };
   },
   afterEach() {
     window.server.shutdown();
@@ -39,8 +44,8 @@ test('it has all the appropriate static fields', function(assert) {
   assert.equal(this.$('.rt-race-form input.input__text.field__cost').length, 1, 'should contain a cost input');
   assert.equal(this.$('.rt-race-form input.input__text.field__distance').length, 1, 'should contain a distance input');
 
-  assert.equal(this.$('.rt-race-form input.input__url.field__image').length, 1, 'should contain an image input');
-  assert.equal(this.$('.rt-race-form input.input__url.field__results').length, 1, 'should contain a results input');
+  assert.equal(this.$('.rt-race-form input.cloudinary-fileupload.field__courseImageUrl').length, 1, 'should contain an image input');
+  assert.equal(this.$('.rt-race-form input.cloudinary-fileupload.field_resultsUrl').length, 1, 'should contain a results url upload input');
 
   assert.equal(this.$('.rt-race-form input.input__url.field__courseLink').length, 1, 'should contain a course link input');
   assert.equal(this.$('.rt-race-form .input__text.field__courseText').length, 1, 'should contain a course text input');
