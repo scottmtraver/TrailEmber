@@ -1,9 +1,10 @@
 export default function(server) {
 
   let venue = server.create('venue');
+  let sponsor = server.create('sponsor');
   server.createList('sponsor', 5);
   server.createList('venue', 4);
-  server.createList('race', 5, { venue });
+  server.createList('race', 5, { venue, sponsor });
 
   /*
     Seed your development database using your factories.
