@@ -23,7 +23,8 @@ test('it renders', function(assert) {
 test('it has all the appropriate static fields', function(assert) {
 
   let venue = server.create('venue');
-  let race = server.create('race', { venue });
+  let sponsor = server.create('sponsor');
+  let race = server.create('race', { venue, sponsor });
 
   this.set('race', race);
 
@@ -62,14 +63,16 @@ test('it has basic validation', function(assert) {
 });
 
 test('it has basic validation', function(assert) {
-  assert.expect(1);
+  assert.expect(2);
 
   let venue = server.create('venue');
-  let race = server.create('race', { venue });
+  let sponsor = server.create('sponsor');
+  let race = server.create('race', { venue, sponsor });
 
   this.set('race', race);
 
   this.render(hbs`{{race/race-form model=race}}`);
 
   assert.equal(this.$('.rt-venue-preview').length, 1, 'should contain a venue preview component');
+  assert.equal(this.$('.rt-sponsor-preview').length, 1, 'should contain a sponsor preview component');
 });

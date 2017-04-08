@@ -143,6 +143,31 @@
     </div>
   </div>
 
+   <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.sponsor' 'isInvalid')) "error"}}">
+      <label>Sponsor:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.sponsor' 'isInvalid')}}
+            {{v-get this 'model.sponsor' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{#x-select class="ui selection dropdown" value=model.sponsor as |xs|}}
+        {{#unless model.sponsor }}
+          {{#xs.option value=null selected=true}}No Sponsor{{/xs.option}}
+        {{/unless}}
+        {{#each sponsorOptions as |v index|}}
+          {{#xs.option value=v}}{{v.name}}{{/xs.option}}
+        {{/each}}
+      {{/x-select}}
+    </div>
+    <div class="field">
+      {{#if model.sponsor }}
+        {{sponsor/sponsor-view model=model.sponsor }}
+      {{/if}}
+    </div>
+  </div>
+
   <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) "error"}}">
     <label>Results:
       {{#if hasValidated }}
