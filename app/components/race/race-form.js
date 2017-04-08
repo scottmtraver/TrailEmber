@@ -44,6 +44,7 @@ const Validations = buildValidations({
 });
 
 export default Ember.Component.extend(Validations, {
+  notify: Ember.inject.service('notify'),
   model: {
     hasValidated: false
   },
@@ -52,10 +53,14 @@ export default Ember.Component.extend(Validations, {
       this.set('hasValidated', true);
       if(this.get('validations.isValid')) {
         this.sendAction('save', this.get('model'));
+        this.get('notify').success('Changes Saved');
+      } else {
+        this.get('notify').alert('Please Complete Form');
       }
     },
     cancel() {
       this.sendAction('cancel');
+      this.get('notify').warning('Changes Canceled');
     },
     changeDate(newDate) {
       this.set('model.date', newDate);
@@ -63,10 +68,12 @@ export default Ember.Component.extend(Validations, {
     imageUploaded (event, data) {
       var url = data._response.result.secure_url;
       this.set('model.courseImageUrl', url);
+      this.get('notify').success('Image Uploaded');
     },
     resultsUploaded (event, data) {
       var url = data._response.result.secure_url;
       this.set('model.resultsUrl', url);
+      this.get('notify').success('Results Uploaded');
     }
   }
 });
