@@ -16,7 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    cloudinary: {
+      cloudName: 'some_cloud_name',
+      apiKey: 'some_api_key'
+    },
   };
 
   if (environment === 'development') {
