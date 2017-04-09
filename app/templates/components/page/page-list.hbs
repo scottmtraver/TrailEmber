@@ -1,0 +1,16 @@
+<table class='rt-page-list ui celled striped table'>
+  <thead>
+    <tr>
+      <th>Page</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |page|}}
+    <tr class='rt-page-row'>
+      <td class='rt-page-title'>{{page.title}}</td>
+      <td class='rt-page-edit'>{{link-to "Edit" "pages.edit" page.id}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

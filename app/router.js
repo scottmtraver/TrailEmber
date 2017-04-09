@@ -32,6 +32,11 @@ Router.map(function() {
       path: ':card_id/edit'
     });
   });
+  this.route('pages', function() {
+    this.route('edit', {
+      path: ':page_id/edit'
+    });
+  });
 });
 
 export default Router;

@@ -7,6 +7,10 @@ export default function(server) {
   server.createList('race', 5, { venue, sponsor });
   server.createList('card', 2);
 
+  server.create('page', { title: 'Homepage', videoUrl: 'https://www.youtube.com/watch?v=QE5qJ6Xw4FI' });
+  server.create('page', { title: 'Registration' });
+  server.create('page', { title: 'Scoring and Standings' });
+
   /*
     Seed your development database using your factories.
     This data will not be loaded in your tests.
