@@ -1,0 +1,47 @@
+<h2 class="ui dividing header">Edit Card</h2>
+<form {{action "save" on="submit"}} class="rt-card-form ui form">
+    <div class="field {{if (and hasValidated (v-get this 'model.title' 'isInvalid')) "error"}}">
+        <label>Card title:
+        {{#if hasValidated }}
+            {{#if (v-get this 'model.title' 'isInvalid')}}
+            {{v-get this 'model.title' 'message'}}
+            {{/if}}
+        {{/if}}
+        </label>
+        {{input value=model.title placeholder="Card title" class="input__text field__title"}}
+    </div>
+    <div class="field {{if (and hasValidated (v-get this 'model.content' 'isInvalid')) "error"}}">
+      <label>Card Content:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.content' 'isInvalid')}}
+            <div class="error">
+              {{v-get this 'model.content' 'message'}}
+            </div>
+          {{/if}}
+        {{/if}}
+      </label>
+      {{froala-editor content=model.content update=(action (mut model.content)) options=(hash heightMin=200)
+        class="input__text field__content"}}
+    </div>
+    <div class="two fields">
+        <div class="four wide field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) "error"}}">
+        <label>Background Image:
+            {{#if hasValidated }}
+            {{#if (v-get this 'model.imageUrl' 'isInvalid')}}
+                {{v-get this 'model.imageUrl' 'message'}}
+            {{/if}}
+            {{/if}}
+        </label>
+
+        {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "imageUploaded") title=" "}}
+
+        </div>
+        <div class="four wide field">
+        {{#if model.imageUrl }}
+            <img src={{model.imageUrl}} alt="Venue Logo" class='rt-card-logo-preview ui small image' />
+        {{/if}}
+        </div>
+    </div>
+    <button type="submit" value="Save" class="input__save ui button green">Save</button>
+    <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
+</form>

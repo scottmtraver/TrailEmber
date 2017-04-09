@@ -5,6 +5,7 @@ export default function(server) {
   server.createList('sponsor', 5);
   server.createList('venue', 4);
   server.createList('race', 5, { venue, sponsor });
+  server.createList('card', 2);
 
   /*
     Seed your development database using your factories.

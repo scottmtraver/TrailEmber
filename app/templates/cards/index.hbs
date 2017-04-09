@@ -1,0 +1,10 @@
+<div class="ui segment">
+  <div class="ui item">
+    {{#link-to 'cards.new' class='rt-cards-new ui green button'}}Create Card{{/link-to}}
+  </div>
+  <div class="ui divider"></div>
+  <div class="ui item">
+    {{card/card-list model=model}}
+  </div>
+  {{outlet}}
+</div>

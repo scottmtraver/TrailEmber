@@ -1,0 +1,18 @@
+<table class='rt-card-list ui celled striped table'>
+  <thead>
+    <tr>
+      <th>Card Title</th>
+      <th>Is Active</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |card|}}
+    <tr class='rt-card-row'>
+      <td class='rt-card-title'>{{card.title}}</td>
+      <td class='rt-card-active'>{{boolean-yes-no card.isActive}}</td>
+      <td class='rt-card-edit'>{{link-to "Edit" "cards.edit" card.id}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
