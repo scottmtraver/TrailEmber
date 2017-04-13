@@ -19,14 +19,6 @@ const Validations = buildValidations({
         type: 'url'
       })
     ]
-  },
-  'model.videoUrl': {
-    description: 'Image',
-    validators: [
-      validator('format', {
-        type: 'url'
-      })
-    ]
   }
 });
 
