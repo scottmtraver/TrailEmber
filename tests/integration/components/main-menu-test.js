@@ -12,3 +12,10 @@ test('it renders', function(assert) {
   assert.equal(this.$('.rt-main-menu').length, 1, 'should contain a main menu');
 });
 
+test('it contains a logout button', function(assert) {
+
+  this.render(hbs`{{main-menu}}`);
+
+  assert.equal(this.$('.control__logout').length, 1, 'should logout button');
+});
+

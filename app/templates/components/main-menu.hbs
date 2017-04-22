@@ -1,33 +1,44 @@
 <div id="rt-main-menu" class="rt-main-menu ui top attached menu">
-  {{#link-to 'pages' class="item"}}
-    <i class="wrench icon"></i>
-    <div>
-      Pages
-    </div>
-  {{/link-to}}
-  {{#link-to 'cards' class="item"}}
-    <i class="wrench icon"></i>
-    <div>
-      Homepage Cards
-    </div>
-  {{/link-to}}
-  {{#link-to 'races' class="item"}}
-    <i class="wrench icon"></i>
-    <div>
-      Races
-    </div>
-  {{/link-to}}
-  {{#link-to 'venues' class="item"}}
-    <i class="wrench icon"></i>
-    <div>
-      Venues
-    </div>
-  {{/link-to}}
-  {{#link-to 'sponsors' class="item"}}
-    <i class="wrench icon"></i>
-    <div>
-      Sponsors
-    </div>
-  {{/link-to}}
+  {{#if session.isAuthenticated}}
+    {{#link-to 'pages' class="item"}}
+      <i class="wrench icon"></i>
+      <div>
+        Pages
+      </div>
+    {{/link-to}}
+    {{#link-to 'cards' class="item"}}
+      <i class="wrench icon"></i>
+      <div>
+        Homepage Cards
+      </div>
+    {{/link-to}}
+    {{#link-to 'races' class="item"}}
+      <i class="wrench icon"></i>
+      <div>
+        Races
+      </div>
+    {{/link-to}}
+    {{#link-to 'venues' class="item"}}
+      <i class="wrench icon"></i>
+      <div>
+        Venues
+      </div>
+    {{/link-to}}
+    {{#link-to 'sponsors' class="item"}}
+      <i class="wrench icon"></i>
+      <div>
+        Sponsors
+      </div>
+    {{/link-to}}
+    <a class="item control__logout right" {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    {{#link-to 'login' class="control__login item right"}}
+      <i class="wrench icon"></i>
+      <div>
+        Login
+      </div>
+    {{/link-to}}
+  {{/if}}
 </div>
+
 

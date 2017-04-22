@@ -41,7 +41,14 @@
             <img src={{model.imageUrl}} alt="Venue Logo" class='rt-card-logo-preview ui small image' />
         {{/if}}
         </div>
-        <div class="four wide field">
+        <div class="eight wide field">
+            <h1>
+                {{#if model.isActive }}
+                    Card is showing on homepage 
+                {{else}}
+                    Card is disabled
+                {{/if}}
+            </h1>
             <button class="input__toggleActive ui button {{if model.isActive 'red'}}" {{action "toggleActive"}}>
                 {{#if model.isActive }}
                     Disable
