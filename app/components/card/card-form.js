@@ -54,6 +54,9 @@ export default Ember.Component.extend(Validations, {
       var url = data._response.result.secure_url;
       this.set('model.imageUrl', url);
       this.get('notify').success('Image Uploaded');
+    },
+    toggleActive() {
+      this.set('model.isActive', !this.get('model.isActive'));
     }
   }
 });

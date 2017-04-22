@@ -26,7 +26,7 @@ test('it renders', function(assert) {
 });
 
 test('it has all the appropriate fields', function(assert) {
-  assert.expect(6);
+  assert.expect(7);
 
   let card = server.create('card');
 
@@ -39,6 +39,7 @@ test('it has all the appropriate fields', function(assert) {
   assert.equal(this.$('.rt-card-form .input__text.field__content').length, 1, 'should contain a rich content input');
 
   assert.equal(this.$('.rt-card-form input.cloudinary-fileupload').length, 1, 'should contain an image input');
+  assert.equal(this.$('.rt-card-form button.input__toggleActive').length, 1, 'should contain a toggle active button');
   assert.equal(this.$('.rt-card-form button.input__save').length, 1, 'should contain a save button');
   assert.equal(this.$('.rt-card-form button.input__cancel').length, 1, 'should contain a cancel button');
 });
@@ -54,4 +55,17 @@ test('it has basic validation', function(assert) {
   this.$('.rt-card-form button.input__save').click();//default state should not be valid
 
   assert.equal(this.$('.error').length, 1, 'should contain an error for the missing title');
+});
+test('it can toggle active/inactive', function(assert) {
+  assert.expect(1);
+
+  let card = server.create('card', { title: 'This is the card title', content: 'This card has content', isActive: true });
+
+  this.set('card', card);
+
+  this.render(hbs`{{card/card-form model=card}}`);
+
+  this.$('.rt-card-form button.input__toggleActive').click();// toggle active
+
+  assert.equal(card.isActive, false, 'should set isActive to be false');
 });

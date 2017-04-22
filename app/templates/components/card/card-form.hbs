@@ -41,6 +41,15 @@
             <img src={{model.imageUrl}} alt="Venue Logo" class='rt-card-logo-preview ui small image' />
         {{/if}}
         </div>
+        <div class="four wide field">
+            <button class="input__toggleActive ui button {{if model.isActive 'red'}}" {{action "toggleActive"}}>
+                {{#if model.isActive }}
+                    Disable
+                {{else}}
+                    Enable
+                {{/if}}
+            </button>
+        </div>
     </div>
     <button type="submit" value="Save" class="input__save ui button green">Save</button>
     <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
