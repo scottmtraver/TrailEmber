@@ -48,6 +48,8 @@
     "ember-notify": "5.2.1",
     "ember-pikaday": "2.2.0",
     "ember-resolver": "^2.0.3",
+    "ember-simple-auth": "1.2.2",
+    "ember-simple-auth-token": "2.1.0",
     "ember-test-helpers": "^0.5.34",
     "ember-truth-helpers": "1.2.0",
     "ember-validations": "2.0.0-alpha.5",
