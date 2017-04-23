@@ -1,10 +1,31 @@
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input id='identification' placeholder='Enter Login' value=identification}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-</form>
+<div class="ui middle aligned center aligned grid two column">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <div class="content">
+        Log-in to your account
+      </div>
+    </h2>
+    <form class="ui large form" {{action 'authenticate' on='submit'}}>
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            {{input id='identification' placeholder='Enter Login' value=identification}}
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            {{input id='password' placeholder='Enter Password' type='password' value=password}}
+          </div>
+        </div>
+        <button type="submit" class="ui fluid large teal submit button">Login</button>
+      </div>
+    </form>
+    {{#if errorMessage}}
+      <div class="ui error message">
+          <p>{{errorMessage.errors}}</p>
+      </div>
+    {{/if}}
+  </div>
+</div>
