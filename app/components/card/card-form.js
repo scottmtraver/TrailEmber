@@ -57,6 +57,9 @@ export default Ember.Component.extend(Validations, {
     },
     toggleActive() {
       this.set('model.isActive', !this.get('model.isActive'));
+    },
+    updateContent(value) {
+      this.set('model.content', value);
     }
   }
 });

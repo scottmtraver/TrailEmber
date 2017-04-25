@@ -45,6 +45,9 @@ export default Ember.Component.extend(Validations, {
       var url = data._response.result.secure_url;
       this.set('model.imageUrl', url);
       this.get('notify').success('Image Uploaded');
+    },
+    updateContent(value) {
+      this.set('model.content', value);
     }
   }
 });

@@ -74,6 +74,9 @@ export default Ember.Component.extend(Validations, {
       var url = data._response.result.secure_url;
       this.set('model.resultsUrl', url);
       this.get('notify').success('Results Uploaded');
+    },
+    updateContent(value) {
+      this.set('model.courseDescription', value);
     }
   }
 });

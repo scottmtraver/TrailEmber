@@ -14,8 +14,8 @@
             {{v-get this 'model.content' 'message'}}
             {{/if}}
         {{/if}}
-      </label> {{froala-editor content=model.content update=(action (mut model.content)) options=(hash heightMin=200)
-        class="input__text field__content"}}
+      </label>
+      {{quill-editor updateContent="updateContent" model=model.content class="input__text field__content"}}
     </div>
     <div class="two fields">
         <div class="four wide field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) " error "}}">

@@ -99,8 +99,7 @@
           {{/if}}
         {{/if}}
       </label>
-      {{froala-editor content=model.courseDescription update=(action (mut model.courseDescription)) options=(hash heightMin=200)
-        class="input__text field__courseText"}}
+      {{quill-editor updateContent="updateContent" model=model.courseDescription class="input__text field__courseText"}}
     </div>
     <div class="field">
       {{#if model.courseImageUrl }}
