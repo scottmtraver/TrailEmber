@@ -5,7 +5,6 @@
     "ember-cli-shims": "0.1.1",
     "semantic-ui": "^2.2.6",
     "cloudinary-jquery-file-upload": "^2.0.6",
-    "ember-simple-auth": "0.8.0",
-    "quill": "https://github.com/quilljs/quill/releases/download/v1.2.4/quill.tar.gz"
+    "ember-simple-auth": "0.8.0"
   }
 }

@@ -7,11 +7,6 @@ module.exports = function(defaults) {
     // Add options here
   });
 
-  app.import('bower_components/quill/quill.min.js');
-  app.import('bower_components/quill/quill.core.css');
-  app.import('bower_components/quill/quill.snow.css');
-
-
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

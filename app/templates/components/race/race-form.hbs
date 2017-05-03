@@ -88,25 +88,24 @@
       {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action "imageUploaded") title=" " class="field__courseImageUrl"}}
     </div>
   </div>
-  <div class="two fields">
-    <div class="field {{if (and hasValidated (v-get this 'model.courseDescription' 'isInvalid')) "error"}}">
-      <label>Course Description:
-        {{#if hasValidated }}
-          {{#if (v-get this 'model.courseDescription' 'isInvalid')}}
-            <div class="error">
-              {{v-get this 'model.courseDescription' 'message'}}
-            </div>
-          {{/if}}
-        {{/if}}
-      </label>
-      {{quill-editor updateContent="updateContent" model=model.courseDescription class="input__text field__courseText"}}
-    </div>
-    <div class="field">
-      {{#if model.courseImageUrl }}
-        <img src={{model.courseImageUrl}} alt="Course Image" class='rt-course-image ui medium image' />
-      {{/if}}
-    </div>
+  <div class="field">
+    {{#if model.courseImageUrl }}
+      <img src={{model.courseImageUrl}} alt="Course Image" class='rt-course-image ui medium image' />
+    {{/if}}
   </div>
+  <div class="field {{if (and hasValidated (v-get this 'model.courseDescription' 'isInvalid')) "error"}}">
+    <label>Course Description:
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.courseDescription' 'isInvalid')}}
+          <div class="error">
+            {{v-get this 'model.courseDescription' 'message'}}
+          </div>
+        {{/if}}
+      {{/if}}
+    </label>
+    {{tinymce-editor options=options value=model.courseDescription class="input__text field__courseText"}}
+  </div>
+
 
   <div class="two fields">
     <div class="field {{if (and hasValidated (v-get this 'model.venue' 'isInvalid')) "error"}}">
