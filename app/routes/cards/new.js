@@ -3,7 +3,9 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model() {
-        return this.store.createRecord('race');
+        return Ember.RSVP.hash({
+            card: this.store.createRecord('card')
+        });
     },
     actions: {
         save: function (newCard) {
@@ -15,7 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             this.transitionTo('cards');
         },
         willTransition() {
-            this.controller.get('model').rollbackAttributes();
+            this.controller.get('model.card').rollbackAttributes();
         }
     }
 });

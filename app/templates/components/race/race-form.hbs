@@ -85,7 +85,7 @@
           {{/if}}
         {{/if}}
       </label>
-      {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "imageUploaded") title=" " class="field__courseImageUrl"}}
+      {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action "imageUploaded") title=" " class="field__courseImageUrl"}}
     </div>
   </div>
   <div class="two fields">
@@ -167,7 +167,7 @@
           {{/if}}
         {{/if}}
       </label>
-      {{cloudinary-direct-file signatureEndpoint='/sign_upload' onUploadDone=(action "resultsUploaded") title=" " class="field_resultsUrl"}}
+      {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action "resultsUploaded") title=" " class="field_resultsUrl"}}
     </div>
     <div class="field">
       <label>Results:
