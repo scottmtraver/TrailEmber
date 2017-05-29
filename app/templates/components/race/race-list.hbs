@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-  {{#each model as |race|}}
+  {{#each sortedRaces as |race|}}
     <tr class='rt-race-row'>
       <td class='rt-race-title'>{{race.name}}</td>
       <td class='rt-race-date'>{{moment-format race.date 'MMM Do YYYY'}}</td>
