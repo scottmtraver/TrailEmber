@@ -3,7 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function () {
-    return this.store.findAll('race', { reload: true }).
-      then(orders => orders.sortBy('date'));
+    return this.store.findAll('race', { reload: true });
   }
 });
