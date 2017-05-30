@@ -5,5 +5,6 @@ export default DS.Model.extend({
   title: attr('string'),
   content: attr('string'),
   imageUrl: attr('string'),
+  order: attr('number'),
   isActive: attr('boolean')
 });

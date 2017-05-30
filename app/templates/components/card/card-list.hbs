@@ -3,15 +3,27 @@
     <tr>
       <th>Card Title</th>
       <th>Is Active</th>
+      <th>Order</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-  {{#each model as |card|}}
+  {{#each sortedCards as |card index|}}
     <tr class='rt-card-row'>
       <td class='rt-card-title'>{{card.title}}</td>
       <td class='rt-card-active'>{{boolean-yes-no card.isActive}}</td>
-      <td class='rt-card-edit'>{{link-to "Edit" "cards.edit" card.id}}</td>
+      {{#if card.isActive}}
+        <td class='rt-card-order'>{{card.order}}</td>
+      {{else}}
+        <td></td>
+      {{/if}}
+      <td class='rt-card-edit'>
+        {{link-to "Edit" "cards.edit" card.id}} | 
+        {{card.isActive}}
+        {{#if card.isActive && index != 0}}
+          <a class="rt-card-move_first">Move to top</a>
+        {{/if}}
+      </td>
     </tr>
   {{/each}}
   </tbody>
