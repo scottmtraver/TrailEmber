@@ -72,6 +72,9 @@ export default Ember.Component.extend(Validations, {
     },
     toggleActive() {
       this.set('model.isActive', !this.get('model.isActive'));
+      if(!this.get('model.isActive')) {
+        this.set('model.order', 999);
+      } 
     }
   }
 });

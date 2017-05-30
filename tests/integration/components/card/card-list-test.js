@@ -38,9 +38,9 @@ test('it renders a row for each card', function(assert) {
 
 
 test('it renders card rows with proper properties', function(assert) {
-  assert.expect(4);
+  assert.expect(3);
 
-  let firstCard = server.create('card', { isActive: true });
+  let firstCard = server.create('card', { isActive: true, order: 1 });
 
   let cardArray = [firstCard];
 
@@ -51,7 +51,6 @@ test('it renders card rows with proper properties', function(assert) {
   // Template block usage:
   assert.equal(this.$('.rt-card-title').text(), firstCard.title, 'should show card title');
   assert.equal(this.$('.rt-card-active').text(), 'Yes', 'should show card active flag');
-  assert.equal(this.$('.rt-card-order').text(), '1', 'should show card order number');
   assert.equal(this.$('.rt-card-order').text(), '1', 'should show card order number');
 
 });
@@ -74,20 +73,20 @@ test('it renders card rows with proper controls', function(assert) {
 });
 
 test('it renders card in sorted order', function(assert) {
-  assert.expect(3);
+  assert.expect(4);
 
   //two active cards
   let cardArray = server.createList('card', 2).map((card, i) => Ember.Object.create(card, { isActive: true, order: i + 1 }));
   //one inactive card
-  cardArray.push(Ember.Object.create(server.create('card', { isActive: false })));
+  cardArray.push(Ember.Object.create(server.create('card', { isActive: false, order: 0 })));
 
   this.set('cards', cardArray);
 
   this.render(hbs`{{card/card-list model=cards}}`);
 
   // Template block usage:
-  assert.equal(this.$('.rt-card-order').length, 2, 'should only active cards should have order numbers');
+  assert.equal(this.$('.rt-card-order').length, 2, 'should have only active card order numbers');
   assert.equal(this.$('.rt-card-order')[0].innerHTML, '1', 'should have first card in topmost position');
   assert.equal(this.$('.rt-card-order')[1].innerHTML, '2', 'should have second card in second position');
-
+  assert.equal(this.$('.rt-card-move_first').length, 2, 'should have only active move to top controls');
 });

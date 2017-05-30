@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-  {{#each sortedCards as |card index|}}
+  {{#each sortedCards as |card|}}
     <tr class='rt-card-row'>
       <td class='rt-card-title'>{{card.title}}</td>
       <td class='rt-card-active'>{{boolean-yes-no card.isActive}}</td>
@@ -18,10 +18,10 @@
         <td></td>
       {{/if}}
       <td class='rt-card-edit'>
-        {{link-to "Edit" "cards.edit" card.id}} | 
-        {{card.isActive}}
-        {{#if card.isActive && index != 0}}
-          <a class="rt-card-move_first">Move to top</a>
+        {{link-to "Edit" "cards.edit" card.id}}
+        {{#if card.isActive }}
+         | 
+          <a class="rt-card-move_first" {{action "moveToTop" card}}>Move to top</a>
         {{/if}}
       </td>
     </tr>
