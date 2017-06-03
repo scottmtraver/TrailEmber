@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model() {
         return Ember.RSVP.hash({
-            card: this.store.createRecord('card')
+            card: this.store.createRecord('card', { order: 0 })
         });
     },
     actions: {

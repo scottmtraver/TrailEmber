@@ -9,10 +9,14 @@ export default Ember.Component.extend({
             if(card.get('order') === 1) {
                 return;
             }
-            this.get('model').filterBy('isActive', true).sortBy('order').forEach((c) => {
-                c.set('order', c.get('order') + 1);
+            //this is aweful
+            this.get('model').filterBy('isActive', true).sortBy('order').forEach((c, i) => {
+                c.set('order', i + 2);
             });
-            card.set('order', 1);
+            card.set('order', 0);
+            this.get('model').filterBy('isActive', true).sortBy('order').forEach((c, i) => {
+                c.set('order', i + 1);
+            });
             this.get('model').save();
         }
     }
