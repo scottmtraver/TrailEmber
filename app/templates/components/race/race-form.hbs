@@ -166,7 +166,7 @@
           {{/if}}
         {{/if}}
       </label>
-      {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action "resultsUploaded") title=" " class="field_resultsUrl"}}
+      <input type="file" name="Results" class="field_resultsUrl" onchange={{action "uploadResults"}} />
     </div>
     <div class="field">
       <label>Results:

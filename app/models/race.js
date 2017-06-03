@@ -14,5 +14,10 @@ export default Model.extend({
   imageUrl: attr('string', { defaultValue: '' }),// this is the course image
   courseDescription: attr('string', { defaultValue: '' }),
   venue: DS.belongsTo('venue'),
-  sponsor: DS.belongsTo('sponsor')
+  sponsor: DS.belongsTo('sponsor'),
+
+  uploadResults(params) {
+    const adapter = this.store.adapterFor(this.constructor.modelName);
+    return adapter.uploadResults(this, params);
+  }
 });

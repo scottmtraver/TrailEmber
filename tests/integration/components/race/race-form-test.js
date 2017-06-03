@@ -45,7 +45,7 @@ test('it has all the appropriate static fields', function(assert) {
   assert.equal(this.$('.rt-race-form input.input__text.field__distance').length, 1, 'should contain a distance input');
 
   assert.equal(this.$('.rt-race-form input.cloudinary-fileupload.field__courseImageUrl').length, 1, 'should contain an image input');
-  assert.equal(this.$('.rt-race-form input.cloudinary-fileupload.field_resultsUrl').length, 1, 'should contain a results url upload input');
+  assert.equal(this.$('.rt-race-form input.field_resultsUrl').length, 1, 'should contain a results url upload input');
 
   assert.equal(this.$('.rt-race-form input.input__url.field__courseLink').length, 1, 'should contain a course link input');
   assert.equal(this.$('.rt-race-form .input__text.field__courseText').length, 1, 'should contain a course text input');
