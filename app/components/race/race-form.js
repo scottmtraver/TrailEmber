@@ -85,6 +85,9 @@ export default Ember.Component.extend(Validations, {
       this.set('model.courseImageUrl', url);
       this.get('notify').success('Image Uploaded');
     },
+    clearResults() {
+      this.set('model.resultsUrl', null);
+    },
     uploadResults (event) {
       var fileReader = new FileReader();
       fileReader.onload = function(e) {

@@ -8,7 +8,7 @@ export default Factory.extend({
   cost() { return faker.random.number() + '$'; },
   distance() { return faker.lorem.sentence(); },
   imageUrl() { return faker.image.imageUrl(); },
-  resultsUrl() { return faker.internet.url(); },
+  resultsUrl() { return null; },
   courseUrl() { return faker.internet.url(); },
   courseImageUrl() { return faker.image.imageUrl(); },
   courseDescription() { return faker.lorem.sentences(); }

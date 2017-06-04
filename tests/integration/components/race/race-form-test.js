@@ -81,3 +81,23 @@ test('it has basic validation', function(assert) {
   assert.equal(this.$('.rt-venue-preview').length, 1, 'should contain a venue preview component');
   assert.equal(this.$('.rt-sponsor-preview').length, 1, 'should contain a sponsor preview component');
 });
+
+test('results controls toggle', function(assert) {
+  assert.expect(2);
+
+  let venue = server.create('venue');
+  let sponsor = server.create('sponsor');
+  let race = server.create('race', { venue, sponsor, resultsUrl: 'www.test.com' });
+
+  this.set('race', race);
+
+  this.render(hbs`{{race/race-form model=race}}`);
+
+  assert.equal(this.$('.rt-race-form button.control_remove_resultsUrl').length, 1, 'should contain a results remove control');
+
+  race.resultsUrl = null;
+  this.set('race', race);
+  this.render(hbs`{{race/race-form model=race}}`);
+
+  assert.equal(this.$('.rt-race-form input.field_resultsUrl').length, 1, 'should contain a results url upload input');
+});

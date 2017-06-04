@@ -159,21 +159,22 @@
 
   <div class="two fields">
     <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) "error"}}">
-      <label>Results:
-        {{#if hasValidated }}
-          {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
-            {{v-get this 'model.resultsUrl' 'message'}}
+      {{#if model.resultsUrl }}
+        <label>Results:
+        </label>
+          <h3>Results Uploaded &nbsp;
+            <button {{action "clearResults"}} class="ui button red tiny control_remove_resultsUrl">X</button>
+          </h3>
+      {{else}}
+        <label>Results:
+          {{#if hasValidated }}
+            {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
+              {{v-get this 'model.resultsUrl' 'message'}}
+            {{/if}}
           {{/if}}
-        {{/if}}
-      </label>
-      <input type="file" name="Results" class="field_resultsUrl" onchange={{action "uploadResults"}} />
-    </div>
-    <div class="field">
-      <label>Results:
-      </label>
-        {{#if model.resultsUrl }}
-          <a target="_blank" href={{model.resultsUrl}}>Link to current results</a>
-        {{/if}}
+        </label>
+        <input type="file" name="Results" class="field_resultsUrl" onchange={{action "uploadResults"}} />
+      {{/if}}
     </div>
   </div>
 
