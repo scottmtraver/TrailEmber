@@ -26,7 +26,7 @@ test('it renders', function(assert) {
 });
 
 test('it has all the appropriate fields', function(assert) {
-  assert.expect(6);
+  assert.expect(7);
 
   let page = server.create('page');
 
@@ -41,6 +41,7 @@ test('it has all the appropriate fields', function(assert) {
   assert.equal(this.$('.rt-page-form .input__text.field__video').length, 1, 'should contain a viedo link input');
   assert.equal(this.$('.rt-page-form button.input__save').length, 1, 'should contain a save button');
   assert.equal(this.$('.rt-page-form button.input__cancel').length, 1, 'should contain a cancel button');
+  assert.equal(this.$('.rt-page-form input.field_resultsUrl').length, 1, 'should contain a results url upload input');
 });
 test('it has basic validation', function(assert) {
   assert.expect(1);

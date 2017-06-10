@@ -63,6 +63,25 @@ export default Ember.Component.extend(Validations, {
     },
     updateContent(value) {
       this.set('model.content', value);
-    }
+    },
+    clearResults() {
+      this.set('model.resultsUrl', null);
+    },
+    uploadResults (event) {
+      var fileReader = new FileReader();
+      fileReader.onload = function(e) {
+        var file = e.srcElement.result;
+
+        this.get('model').uploadResults({ file: file }).then(response => {
+          if(response.error) {
+            this.get('notify').error('Upload Failed');
+          } else {
+            this.set('model.resultsUrl', response.url);
+            this.get('notify').success('Results Uploaded');
+          }
+        });
+      }.bind(this);
+      fileReader.readAsDataURL(event.target.files[0]);
+    },
   }
 });

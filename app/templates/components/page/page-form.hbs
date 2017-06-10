@@ -14,8 +14,7 @@
             {{v-get this 'model.content' 'message'}}
             {{/if}}
         {{/if}}
-      </label>
-      {{tinymce-editor options=options value=model.content class="input__text field__content"}}
+      </label> {{tinymce-editor options=options value=model.content class="input__text field__content"}}
     </div>
     <div class="two fields">
         <div class="four wide field {{if (and hasValidated (v-get this 'model.imageUrl' 'isInvalid')) " error "}}">
@@ -25,8 +24,8 @@
                 {{v-get this 'model.imageUrl' 'message'}}
             {{/if}}
             {{/if}}
-        </label> {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action "imageUploaded")
-            title=" "}}
+        </label> {{cloudinary-direct-file signatureEndpoint='http://138.68.27.140:3001/sign_upload' onUploadDone=(action
+            "imageUploaded") title=" "}}
 
         </div>
         <div class="four wide field">
@@ -42,6 +41,26 @@
             {{/if}}
         {{/if}}
         </label> {{input value=model.videoUrl placeholder="Video Link" class="input__text field__video"}}
+    </div>
+    <div class="two fields">
+        <div class="field {{if (and hasValidated (v-get this 'model.resultsUrl' 'isInvalid')) " error "}}">
+        {{#if model.resultsUrl }}
+            <label>Results:
+        </label>
+            <h3>Results Uploaded &nbsp;
+                <button {{action "clearResults"}} class="ui button red tiny control_remove_resultsUrl">X</button>
+            </h3>
+        {{else}}
+            <label>Results:
+            {{#if hasValidated }}
+                {{#if (v-get this 'model.resultsUrl' 'isInvalid')}}
+                {{v-get this 'model.resultsUrl' 'message'}}
+                {{/if}}
+            {{/if}}
+            </label>
+            <input type="file" name="Results" class="field_resultsUrl" onchange={{action "uploadResults"}} />
+        {{/if}}
+        </div>
     </div>
     <button type="submit" value="Save" class="input__save ui button green">Save</button>
     <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
