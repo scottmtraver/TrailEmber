@@ -1,0 +1,19 @@
+{{cloudinary-direct-file signatureEndpoint='https://api.runontrails.com/sign_upload' onUploadDone=(action "imageUploaded") title=" "}}
+<table class='rt-photo-list ui celled striped table'>
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |photo|}}
+    <tr class='rt-photo-row'>
+      <td class='rt-photo-small center aligned'><img src={{photo.imageUrl}} alt ="Photo" class="ui medium image" /></td>
+      <td class='rt-card-delete collapsing'>
+          <button>Delete</button>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>

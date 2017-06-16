@@ -37,6 +37,7 @@ Router.map(function() {
       path: ':page_id/edit'
     });
   });
+  this.route('gallery', function() {});
 });
 
 export default Router;
