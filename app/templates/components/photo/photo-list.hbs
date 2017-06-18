@@ -11,7 +11,11 @@
     <tr class='rt-photo-row'>
       <td class='rt-photo-small center aligned'><img src={{ photo.imageUrl }} alt ="Photo" class="ui medium image" /></td>
       <td class='rt-card-delete collapsing'>
-          <button>Delete</button>
+          {{#if photo.isActive}}
+            <button {{ action "deletePhoto" photo }}>Delete</button>
+          {{else}}
+            <span>Deleted</span>
+          {{/if}}
       </td>
     </tr>
   {{/each}}

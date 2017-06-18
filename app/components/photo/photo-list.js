@@ -9,5 +9,8 @@ export default Ember.Component.extend({
             var url = data._response.result.secure_url;
             this.sendAction('savePhoto', url);
         },
+        deletePhoto(photo) {
+            this.sendAction('deletePhoto', photo);
+        },
     }
 });
