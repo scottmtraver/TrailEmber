@@ -30,6 +30,12 @@
         Sponsors
       </div>
     {{/link-to}}
+    {{#link-to 'gallery' class="item"}}
+      <i class="picture icon"></i>
+      <div>
+        Photos
+      </div>
+    {{/link-to}}
     <a class="item control__logout right" {{action 'invalidateSession'}}>Logout</a>
   {{else}}
     {{#link-to 'login' class="control__login item right"}}
