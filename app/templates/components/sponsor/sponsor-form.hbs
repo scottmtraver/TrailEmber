@@ -45,4 +45,11 @@
 
   <button type="submit" value="Save" class="input__save ui button green">Save</button>
   <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
+  <button {{action "delete"}} class="input__delete ui button red">
+      {{#if model.confirmDelete }}
+        Are you sure?
+      {{else}}
+        Delete
+      {{/if}}
+  </button>
 </form>

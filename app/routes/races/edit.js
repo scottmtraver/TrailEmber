@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.hash({
       race: this.store.find('race', params.race_id),
       venueOptions: this.store.findAll('venue'),
-      sponsorOptions: this.store.findAll('sponsor')
+      sponsorOptions: this.get('store').query('sponsor', { filter: { is_active: true }})
     });
   },
   actions:{

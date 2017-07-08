@@ -34,9 +34,19 @@ const Validations = buildValidations({
 export default Ember.Component.extend(Validations, {
   notify: Ember.inject.service('notify'),
   model: {
-    hasValidated: false
+    hasValidated: false,
+    confirmDelete: false
   },
   actions: {
+    delete() {
+      // first pass set confirm delete
+      if(this.get('model.confirmDelete')) {
+        this.sendAction('setInactive', this.get('model'));
+        this.get('notify').warning('Sponsor Deleted');
+      } else {
+        this.set('model.confirmDelete', true);
+      }
+    },
     save() {
       this.set('hasValidated', true);
       if(this.get('validations.isValid')) {

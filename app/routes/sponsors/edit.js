@@ -11,6 +11,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         this.transitionTo('sponsors');
       });
     },
+    setInactive: function(sponsor){
+      sponsor.set('isActive', false);
+      sponsor.save().then(() => {
+        this.transitionTo('sponsors');
+      });
+    },
     cancel: function(){
       this.transitionTo('sponsors');
     },

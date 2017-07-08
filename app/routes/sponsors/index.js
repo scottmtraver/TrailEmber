@@ -3,6 +3,6 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model() {
-    return this.get('store').findAll('sponsor');
+    return this.get('store').query('sponsor', { filter: { is_active: true }});
   }
 });
