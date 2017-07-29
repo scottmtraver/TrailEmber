@@ -1,11 +1,18 @@
 import Ember from 'ember';
 
+const PHOTO_INCRAMENT = 15;
+
 export default Ember.Component.extend({
     sortedPhotos: Ember.computed.sort('photos.@each.date', function(a, b) {
         return moment.utc(b.get('date')).diff(moment.utc(a.get('date')));
     }),
+    topPhotos: Ember.computed('model.showing', function() {
+        let array = this.get('sortedPhotos').slice(0, this.get('model.showing'));
+        return array;
+    }),
     model: {
         selectedSponsor: null,
+        showing: 2
     },
     actions: {
         imageUploaded(event, data) {
@@ -26,6 +33,9 @@ export default Ember.Component.extend({
         },
         deletePhoto(photo) {
             this.sendAction('deletePhoto', photo);
+        },
+        showMorePhotos() {
+            this.set('model.showing', this.get('model.showing') + PHOTO_INCRAMENT);
         },
     }
 });

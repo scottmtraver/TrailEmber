@@ -21,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each sortedPhotos as |photo|}}
+    {{#each topPhotos as |photo|}}
     <tr class='rt-photo-row'>
       <td class='rt-photo-small center aligned'><img src={{ photo.imageUrl }} alt="Photo" class="ui medium image" /></td>
       <td class='rt-card-delete collapsing'>
@@ -31,5 +31,6 @@
       </td>
     </tr>
     {{/each}}
+    <button {{ action "showMorePhotos" }}>Show More</button>
   </tbody>
 </table>
