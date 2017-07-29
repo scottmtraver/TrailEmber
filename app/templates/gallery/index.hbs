@@ -1,6 +1,7 @@
 <div class="ui segment">
   <div class="ui item">
-    {{photo/photo-list model=model savePhoto="savePhoto" deletePhoto="deletePhoto"}}
+    {{photo/photo-list photos=model.photos sponsorOptions=model.sponsorOptions savePhoto="savePhoto"
+      deletePhoto="deletePhoto" refreshRoute="refreshRoute"}}
   </div>
   {{outlet}}
 </div>

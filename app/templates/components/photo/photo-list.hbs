@@ -1,4 +1,18 @@
-{{cloudinary-direct-file signatureEndpoint='https://api.runontrails.com/sign_upload' onUploadDone=(action "imageUploaded") title=" "}}
+<div class="ui form">
+  <div class="two fields">
+    <div class="eight wide field">
+      <h3>Upload 1-10 photos at a time. Page will automatically reload.</h3>
+      {{cloudinary-direct-file signatureEndpoint='https://api.runontrails.com/sign_upload' onUploadDone=(action "imageUploaded")
+      allFileProgress=(action "fileProgress") title=" "}}
+    </div>
+    <div class="six wide field">
+      <h3>Photos will be branded with this photo:</h3>
+      {{#x-select class="ui selection dropdown" value=model.selectedSponsor as |xs|}} {{#unless model.selectedSponsor }} {{#xs.option value=null
+      selected=true}}No Sponsor{{/xs.option}} {{/unless}} {{#each sponsorOptions as |v index|}} {{#xs.option value=v}}{{v.name}}{{/xs.option}}
+      {{/each}} {{/x-select}}
+    </div>
+  </div>
+</div>
 <table class='rt-photo-list ui celled striped table'>
   <thead>
     <tr>
@@ -7,17 +21,15 @@
     </tr>
   </thead>
   <tbody>
-  {{#each sortedPhotos as |photo|}}
+    {{#each sortedPhotos as |photo|}}
     <tr class='rt-photo-row'>
-      <td class='rt-photo-small center aligned'><img src={{ photo.imageUrl }} alt ="Photo" class="ui medium image" /></td>
+      <td class='rt-photo-small center aligned'><img src={{ photo.imageUrl }} alt="Photo" class="ui medium image" /></td>
       <td class='rt-card-delete collapsing'>
-          {{#if photo.isActive}}
-            <button {{ action "deletePhoto" photo }}>Delete</button>
-          {{else}}
-            <span>Deleted</span>
-          {{/if}}
+        {{#if photo.isActive}}
+        <button {{ action "deletePhoto" photo }}>Delete</button> {{else}}
+        <span>Deleted</span> {{/if}}
       </td>
     </tr>
-  {{/each}}
+    {{/each}}
   </tbody>
 </table>
