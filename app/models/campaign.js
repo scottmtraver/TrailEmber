@@ -6,5 +6,5 @@ export default DS.Model.extend({
   videoUrl: attr('string'),
   isActive: attr('boolean'),
 
-  campaignEntries: DS.hasMany('campaign-entry')
+  centries: DS.hasMany('centry')
 });

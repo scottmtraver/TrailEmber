@@ -1,26 +1,24 @@
 <h2 class="ui dividing header">Edit Campaign</h2>
-<form {{action "save" on="submit"}} class="rt-campaign-form ui form">
+<form {{action "save" on="submit" }} class="rt-campaign-form ui form">
   <div class="two fields">
-    <div class="field {{if (and hasValidated (v-get this 'model.name' 'isInvalid')) "error"}}">
+    <div class="field {{if (and hasValidated (v-get this 'model.name' 'isInvalid')) " error "}}">
       <label>Campaign Title:
         {{#if hasValidated }}
           {{#if (v-get this 'model.name' 'isInvalid')}}
             {{v-get this 'model.name' 'message'}}
           {{/if}}
         {{/if}}
-      </label>
-      {{input value=model.name placeholder="Campaign Name" class="input__text field__name"}}
+      </label> {{input value=model.name placeholder="Campaign Name" class="input__text field__name"}}
     </div>
   </div>
-  <div class="field {{if (and hasValidated (v-get this 'model.videoUrl' 'isInvalid')) "error"}}">
+  <div class="field {{if (and hasValidated (v-get this 'model.videoUrl' 'isInvalid')) " error "}}">
     <label>Website:
       {{#if hasValidated }}
         {{#if (v-get this 'model.videoUrl' 'isInvalid')}}
           {{v-get this 'model.videoUrl' 'message'}}
         {{/if}}
       {{/if}}
-    </label>
-    {{input value=model.videoUrl placeholder="Video" class="input__url field__video"}}
+    </label> {{input value=model.videoUrl placeholder="Video" class="input__url field__video"}}
   </div>
 
   <button type="submit" value="Save" class="input__save ui button green">Save</button>
@@ -32,4 +30,24 @@
         Delete
       {{/if}}
   </button>
+  <hr />
+  <h3>Campaign Entries</h3>
+  <table class='rt-campaign-list ui celled striped table'>
+    <thead>
+      <tr>
+        <th>Bib</th>
+        <th>Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.centries as |centry|}}
+      <tr class='rt-centry-row'>
+        <td class='rt-centry-bib'>{{centry.bib}}</td>
+        <td class='rt-centry-name'>{{centry.name}}</td>
+        <td class='rt-centry-added'>{{centry.added}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </form>
