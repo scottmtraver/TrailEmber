@@ -43,7 +43,7 @@ export default Ember.Component.extend(Validations, {
       // first pass set confirm delete
       if(this.get('model.confirmDelete')) {
         this.sendAction('setInactive', this.get('model'));
-        this.get('notify').warning('Sponsor Deleted');
+        this.get('notify').warning('Campaign De-activated');
       } else {
         this.set('model.confirmDelete', true);
       }

@@ -2,11 +2,15 @@
   <thead>
     <tr>
       <th>Campaign Title</th>
-      <th>Is Active</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-
+  {{#each model as |campaign|}}
+    <tr class='rt-campaign-row'>
+      <td class='rt-campaign-name'>{{campaign.name}}</td>
+      <td class='rt-campaign-edit'>{{link-to "Edit" "campaigns.edit" campaign}}</td>
+    </tr>
+  {{/each}}
   </tbody>
 </table>
