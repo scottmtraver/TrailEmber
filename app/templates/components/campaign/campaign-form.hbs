@@ -1,0 +1,35 @@
+<h2 class="ui dividing header">Edit Campaign</h2>
+<form {{action "save" on="submit"}} class="rt-campaign-form ui form">
+  <div class="two fields">
+    <div class="field {{if (and hasValidated (v-get this 'model.name' 'isInvalid')) "error"}}">
+      <label>Campaign Title:
+        {{#if hasValidated }}
+          {{#if (v-get this 'model.name' 'isInvalid')}}
+            {{v-get this 'model.name' 'message'}}
+          {{/if}}
+        {{/if}}
+      </label>
+      {{input value=model.name placeholder="Campaign Name" class="input__text field__name"}}
+    </div>
+  </div>
+  <div class="field {{if (and hasValidated (v-get this 'model.videoUrl' 'isInvalid')) "error"}}">
+    <label>Website:
+      {{#if hasValidated }}
+        {{#if (v-get this 'model.videoUrl' 'isInvalid')}}
+          {{v-get this 'model.videoUrl' 'message'}}
+        {{/if}}
+      {{/if}}
+    </label>
+    {{input value=model.videoUrl placeholder="Video" class="input__url field__video"}}
+  </div>
+
+  <button type="submit" value="Save" class="input__save ui button green">Save</button>
+  <button {{action "cancel"}} class="input__cancel ui button">Cancel</button>
+  <button {{action "delete"}} class="input__delete ui button red">
+      {{#if model.confirmDelete }}
+        Are you sure?
+      {{else}}
+        Delete
+      {{/if}}
+  </button>
+</form>

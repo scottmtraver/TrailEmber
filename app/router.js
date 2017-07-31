@@ -38,6 +38,10 @@ Router.map(function() {
     });
   });
   this.route('gallery', function() {});
+  this.route('campaigns', function() {
+    this.route('new');
+    this.route('edit');
+  });
 });
 
 export default Router;
