@@ -9,7 +9,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   actions:{
     save: function(page){
-      page.save().then(() => {
+      this.get('model').save().then(() => {
         this.transitionTo('pages');
       });
     },
