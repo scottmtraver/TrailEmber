@@ -6,6 +6,6 @@ export default Model.extend({
   name: attr('string'),
   linkUrl: attr('string'),
   imageUrl: attr('string'),
-  isActive: attr('boolean'),
+  isActive: attr('boolean', {defaultValue: true}),
   races: DS.hasMany('race')
 });
